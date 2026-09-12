@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WealthHub | Modern Financial Intelligence Tools</title>
-  <meta name="description" content="Take control of your financial future with professional calculators for debt payoff, compound growth, and wealth planning.">
+  <meta name="description" content="Take control of your financial future with professional calculators for debt payoff, compound growth, budgeting, and FIRE planning.">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
   <style>
@@ -24,6 +24,7 @@
         <a href="debt-calculator.html" class="text-slate-600 hover:text-indigo-500">Debt Payoff</a>
         <a href="compound-calculator.html" class="text-slate-600 hover:text-indigo-500">Compound Interest</a>
         <a href="budget-calculator.html" class="text-slate-600 hover:text-indigo-500">50/30/20 Budget</a>
+        <a href="fire-calculator.html" class="text-slate-600 hover:text-indigo-500">FIRE Planner</a>
         <a href="about.html" class="text-slate-600 hover:text-indigo-500">About</a>
         <a href="legal.html" class="text-slate-600 hover:text-indigo-500">Legal</a>
       </nav>
@@ -37,14 +38,14 @@
       Master Your Money. Build Your Wealth.
     </h1>
     <p class="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto mb-10">
-      Powerful, privacy-first financial calculators designed to help you crush debt, grow investments, and plan your financial freedom.
+      Powerful, privacy-first financial calculators designed to help you crush debt, grow investments, and achieve financial independence.
     </p>
     <div class="flex flex-col sm:flex-row justify-center gap-4">
       <a href="debt-calculator.html" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-2xl shadow-lg shadow-indigo-200 transition">
         Explore Debt Payoff Tool &rarr;
       </a>
-      <a href="compound-calculator.html" class="bg-white border-2 border-slate-200 hover:border-slate-300 text-slate-700 font-bold py-4 px-8 rounded-2xl transition">
-        Compound Interest Calculator
+      <a href="fire-calculator.html" class="bg-white border-2 border-slate-200 hover:border-slate-300 text-slate-700 font-bold py-4 px-8 rounded-2xl transition">
+        FIRE & Retirement Planner
       </a>
     </div>
   </section>
@@ -56,19 +57,19 @@
       <p class="text-slate-600 mt-2">Select a calculator to get started instantly.</p>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
       
       <!-- Card 1 : Debt Payoff -->
       <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:border-indigo-500 transition flex flex-col justify-between">
         <div>
           <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center font-bold text-xl mb-6">📉</div>
-          <h3 class="text-2xl brand-font text-slate-900 mb-3">Multi-Debt Payoff Engine</h3>
-          <p class="text-slate-600 mb-6">
+          <h3 class="text-xl brand-font text-slate-900 mb-3">Multi-Debt Payoff</h3>
+          <p class="text-slate-600 text-sm mb-6">
             Compare Snowball and Avalanche repayment strategies and track multiple debts.
           </p>
         </div>
-        <a href="debt-calculator.html" class="text-indigo-600 font-bold hover:text-indigo-700 inline-flex items-center">
-          Launch Calculator &rarr;
+        <a href="debt-calculator.html" class="text-indigo-600 font-bold text-sm hover:text-indigo-700 inline-flex items-center">
+          Launch &rarr;
         </a>
       </div>
 
@@ -76,13 +77,13 @@
       <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:border-indigo-500 transition flex flex-col justify-between">
         <div>
           <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center font-bold text-xl mb-6">📈</div>
-          <h3 class="text-2xl brand-font text-slate-900 mb-3">Compound Interest Growth</h3>
-          <p class="text-slate-600 mb-6">
+          <h3 class="text-xl brand-font text-slate-900 mb-3">Compound Growth</h3>
+          <p class="text-slate-600 text-sm mb-6">
             Simulate long-term investment growth with monthly contributions and dynamic charts.
           </p>
         </div>
-        <a href="compound-calculator.html" class="text-indigo-600 font-bold hover:text-indigo-700 inline-flex items-center">
-          Launch Calculator &rarr;
+        <a href="compound-calculator.html" class="text-indigo-600 font-bold text-sm hover:text-indigo-700 inline-flex items-center">
+          Launch &rarr;
         </a>
       </div>
 
@@ -90,13 +91,27 @@
       <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:border-indigo-500 transition flex flex-col justify-between">
         <div>
           <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center font-bold text-xl mb-6">💡</div>
-          <h3 class="text-2xl brand-font text-slate-900 mb-3">50/30/20 Budget Planner</h3>
-          <p class="text-slate-600 mb-6">
+          <h3 class="text-xl brand-font text-slate-900 mb-3">50/30/20 Budget</h3>
+          <p class="text-slate-600 text-sm mb-6">
             Master your monthly cash flow and optimize allocation for needs, wants, and savings.
           </p>
         </div>
-        <a href="budget-calculator.html" class="text-indigo-600 font-bold hover:text-indigo-700 inline-flex items-center">
-          Launch Calculator &rarr;
+        <a href="budget-calculator.html" class="text-indigo-600 font-bold text-sm hover:text-indigo-700 inline-flex items-center">
+          Launch &rarr;
+        </a>
+      </div>
+
+      <!-- Card 4 : FIRE Calculator -->
+      <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 hover:border-indigo-500 transition flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center font-bold text-xl mb-6">🔥</div>
+          <h3 class="text-xl brand-font text-slate-900 mb-3">FIRE Planner</h3>
+          <p class="text-slate-600 text-sm mb-6">
+            Calculate your time to financial independence and early retirement nest egg.
+          </p>
+        </div>
+        <a href="fire-calculator.html" class="text-indigo-600 font-bold text-sm hover:text-indigo-700 inline-flex items-center">
+          Launch &rarr;
         </a>
       </div>
 
