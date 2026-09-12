@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | WealthHub</title>
+  <meta name="description" content="Learn more about WealthHub's mission to provide accessible, powerful, and privacy-first financial tools.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+  <!-- HEADER -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+      <a href="index.html" class="flex items-center text-2xl brand-font text-slate-900">
+        WealthHub<span class="text-indigo-500">.</span>
+      </a>
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold">
+        <a href="debt-calculator.html" class="text-slate-600 hover:text-indigo-500">Debt Payoff</a>
+        <a href="compound-calculator.html" class="text-slate-600 hover:text-indigo-500">Compound Interest</a>
+        <a href="about.html" class="text-indigo-600">About</a>
+        <a href="legal.html" class="text-slate-600 hover:text-indigo-500">Legal</a>
+        <a href="index.html" class="text-slate-600 hover:text-indigo-500">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-4xl mx-auto px-4 py-12 lg:py-16 w-full">
+    <div class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-200 space-y-6">
+      <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Our Story</span>
+      <h1 class="text-3xl md:text-4xl brand-font text-slate-900">About WealthHub</h1>
+      
+      <p class="text-lg text-slate-600 leading-relaxed">
+        WealthHub was built with a simple core philosophy: financial clarity should be accessible to everyone, without friction, complex software, or privacy compromises.
+      </p>
+
+      <h2 class="text-2xl brand-font text-slate-900 pt-4">Our Mission</h2>
+      <p class="text-slate-600 leading-relaxed">
+        We empower individuals to take control of their financial future through fast, interactive, and transparent tools. Whether you are climbing out of debt using the Snowball or Avalanche method, or projecting long-term investment growth, WealthHub puts data directly into your hands.
+      </p>
+
+      <h2 class="text-2xl brand-font text-slate-900 pt-4">Privacy First</h2>
+      <p class="text-slate-600 leading-relaxed">
+        Your financial data belongs to you. All calculations on WealthHub happen directly inside your web browser. We do not store, track, or sell your personal financial information.
+      </p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 py-10 mt-auto text-center text-sm">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>&copy; 2026 WealthHub. <a href="legal.html" class="underline hover:text-white">Legal & Disclaimers</a></p>
+    </div>
+  </footer>
+</body>
+</html>
