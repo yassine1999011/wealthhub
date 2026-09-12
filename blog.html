@@ -4,19 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WealthHub | Blog & Guides Financiers</title>
+    <meta name="description" content="Découvrez nos articles, analyses et guides sur l'indépendance financière, la gestion de budget et l'optimisation de l'épargne.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
 <body class="h-full text-slate-100 flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
 
-    <!-- Header / Navigation -->
+    <!-- Header -->
     <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <span class="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">WealthHub</span>
-                <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium">Blog & Guides</span>
-            </div>
+            <span class="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">WealthHub</span>
             <a href="index.html" class="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2">
                 ← Retour au tableau de bord
             </a>
@@ -26,20 +24,19 @@
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow">
         
-        <!-- Hero Section -->
         <div class="text-center max-w-3xl mx-auto mb-16">
             <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4 text-white">
-                Maîtrisez vos finances, <span class="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">accélérez votre liberté</span>
+                Blog & <span class="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">Guides Financiers</span>
             </h1>
             <p class="text-slate-400 text-lg">
-                Découvrez nos analyses d'experts, nos guides pratiques sur l'épargne, la gestion budgétaire et les stratégies d'investissement modernes.
+                Maîtrisez vos finances personnelles et accélérez votre liberté grâce à nos analyses d'experts.
             </p>
         </div>
 
         <!-- Articles Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-            <!-- Article 1 -->
+            <!-- Article 1 (Actif) -->
             <article class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-emerald-500/50 transition-all">
                 <div>
                     <div class="flex items-center gap-2 mb-4">
@@ -50,72 +47,31 @@
                         Adapter le budget 50/30/20 face à l'inflation moderne
                     </h2>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Comment recalculer ses seuils d'épargne et de dépenses quand les charges fixes (logement, énergie) dépassent la barre historique des 50 %. Stratégies d'optimisation agiles.
+                        Comment recalculer ses seuils d'épargne et de dépenses quand les charges fixes (logement, énergie) dépassent la barre historique des 50 %.
                     </p>
                 </div>
-                <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 text-xs text-slate-400">
+                <div class="flex items-center justify-between pt-4 border-t border-slate-800 text-xs text-slate-400">
                     <span>Par l'équipe WealthHub</span>
-                    <a href="#article-1" class="text-emerald-400 font-semibold hover:underline">Lire l'article →</a>
+                    <a href="inflation-budget.html" class="text-emerald-400 font-semibold hover:underline">Lire l'article →</a>
                 </div>
             </article>
 
-            <!-- Article 2 -->
-            <article class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-emerald-500/50 transition-all">
+            <!-- Prochains articles (en préparation) -->
+            <article class="bg-slate-900/40 border border-slate-800/60 rounded-2xl p-6 flex flex-col justify-between opacity-75">
                 <div>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="text-xs px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 font-medium">Indépendance FIRE</span>
-                        <span class="text-xs text-slate-500">8 min de lecture</span>
+                        <span class="text-xs text-slate-500">Bientôt disponible</span>
                     </div>
-                    <h2 class="text-xl font-bold text-white mb-3 hover:text-emerald-400 transition-colors">
+                    <h2 class="text-xl font-bold text-white mb-3">
                         Les 3 visages du mouvement FIRE : LeanFIRE, FatFIRE et Barista FIRE
                     </h2>
                     <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Démystifiez l'indépendance financière. Il n'y a pas qu'un seul modèle : découvrez quelle stratégie s'adapte le mieux à votre style de vie et à votre appétence au risque.
+                        Démystifiez l'indépendance financière et découvrez quelle stratégie s'adapte le mieux à votre style de vie.
                     </p>
                 </div>
-                <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 text-xs text-slate-400">
-                    <span>Par l'équipe WealthHub</span>
-                    <a href="#article-2" class="text-emerald-400 font-semibold hover:underline">Lire l'article →</a>
-                </div>
-            </article>
-
-            <!-- Article 3 -->
-            <article class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-emerald-500/50 transition-all">
-                <div>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-xs px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 font-medium">Actifs & Croissance</span>
-                        <span class="text-xs text-slate-500">7 min de lecture</span>
-                    </div>
-                    <h2 class="text-xl font-bold text-white mb-3 hover:text-emerald-400 transition-colors">
-                        Intégrer les actifs numériques dans une stratégie d'intérêts composés
-                    </h2>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Guide neutre et pédagogique sur la diversification patrimoniale entre marchés traditionnels et actifs digitaux à long terme, en s'appuyant sur la mathématique de la capitalisation.
-                    </p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 text-xs text-slate-400">
-                    <span>Par l'équipe WealthHub</span>
-                    <a href="#article-3" class="text-emerald-400 font-semibold hover:underline">Lire l'article →</a>
-                </div>
-            </article>
-
-            <!-- Article 4 -->
-            <article class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-emerald-500/50 transition-all">
-                <div>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-xs px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 font-medium">Désendettement</span>
-                        <span class="text-xs text-slate-500">5 min de lecture</span>
-                    </div>
-                    <h2 class="text-xl font-bold text-white mb-3 hover:text-emerald-400 transition-colors">
-                        Le protocole "Zéro Dette" : Méthode Snowball vs Avalanche
-                    </h2>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                        Analyse psychologique et mathématique pour éliminer vos crédits rapidement. Testez directement notre simulateur de désendettement intégré pour voir la différence.
-                    </p>
-                </div>
-                <div class="flex items-center justify-between pt-4 border-t border-slate-800/80 text-xs text-slate-400">
-                    <span>Par l'équipe WealthHub</span>
-                    <a href="index.html" class="text-emerald-400 font-semibold hover:underline">Tester l'outil →</a>
+                <div class="pt-4 border-t border-slate-800/80 text-xs text-slate-500">
+                    <span>Bientôt en ligne</span>
                 </div>
             </article>
 
@@ -124,7 +80,7 @@
 
     <!-- Footer -->
     <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
-        <p>&copy; 2026 WealthHub. Tous droits réservés. Conçu pour l'indépendance financière.</p>
+        <p>&copy; 2026 WealthHub. Tous droits réservés.</p>
     </footer>
 
 </body>
