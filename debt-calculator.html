@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ultimate Debt Payoff Calculator & Planner | WealthHub</title>
-  <meta name="description" content="Calculate your debt-free date, generate your milestone roadmap, and export your payoff plan to Excel or PDF.">
+  <title>Advanced Multi-Debt Payoff Calculator | WealthHub</title>
+  <meta name="description" content="Manage multiple debts with Snowball and Avalanche strategies, calculate your exact debt-free date, and export your roadmap.">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -16,7 +16,7 @@
     .schedule-visible { max-height: 2000px; opacity: 1; transition: all 0.5s ease-in-out; }
     
     @media print {
-      header, footer, article, button, input[type="range"], .no-print { display: none !important; }
+      header, footer, article, button, input, select, .no-print { display: none !important; }
       body { background: white; }
       .schedule-hidden { max-height: none !important; opacity: 1 !important; display: block !important; }
       main { padding: 0 !important; margin: 0 !important; }
@@ -42,93 +42,64 @@
   <main class="flex-grow max-w-7xl mx-auto px-4 py-8 lg:py-12 w-full">
     
     <div class="text-center max-w-3xl mx-auto mb-10 no-print">
-      <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Pro Planner</span>
-      <h1 class="text-3xl md:text-5xl brand-font text-slate-900 mt-4 mb-4 tracking-tight">The Ultimate Debt Destroyer</h1>
-      <p class="text-slate-600 text-lg">Enter your numbers to instantly generate your payoff roadmap, see your credit score impact, and export your plan.</p>
+      <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Multi-Debt Strategy Engine</span>
+      <h1 class="text-3xl md:text-5xl brand-font text-slate-900 mt-4 mb-4 tracking-tight">Crush All Your Debts</h1>
+      <p class="text-slate-600 text-lg">Add your debts, choose your payoff strategy (Snowball or Avalanche), and watch your debt-free date come closer.</p>
     </div>
 
-    <!-- MAIN DASHBOARD -->
+    <!-- STRATEGY & EXTRA PAYMENT CONTROLS -->
+    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 mb-8 no-print grid md:grid-cols-2 gap-6 items-center">
+      <div>
+        <label class="block text-sm font-bold text-slate-700 mb-2">Payoff Strategy</label>
+        <select id="strategy" class="w-full p-3 bg-slate-50 border border-slate-300 rounded-xl font-semibold focus:ring-2 focus:ring-indigo-500" onchange="calculate()">
+          <option value="avalanche">Debt Avalanche (Highest Interest First - Saves Most Money)</option>
+          <option value="snowball">Debt Snowball (Lowest Balance First - Quick Psychological Wins)</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-bold text-indigo-600 mb-2 flex justify-between">
+          <span>Extra Monthly Budget</span>
+          <span id="extra-display" class="bg-indigo-100 px-2 py-0.5 rounded text-indigo-800">$100 / mo</span>
+        </label>
+        <input type="range" id="extra-payment" min="0" max="2000" step="25" value="100" class="w-full accent-indigo-600" oninput="updateDisplay(); calculate()">
+      </div>
+    </div>
+
+    <!-- MAIN DASHBOARD GRID -->
     <div class="grid lg:grid-cols-12 gap-8 mb-8">
       
-      <!-- LEFT PANEL : INPUTS -->
-      <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 lg:col-span-4">
-        <h3 class="text-xl brand-font text-slate-900 mb-6">Your Debt Info</h3>
-        
-        <div class="space-y-5">
-          <div>
-            <label class="block text-sm font-bold text-slate-700 mb-1">Total Balance</label>
-            <div class="relative">
-              <span class="absolute left-4 top-3.5 text-slate-400 font-bold">$</span>
-              <input type="number" id="balance" value="15000" class="w-full pl-9 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 font-semibold text-lg transition" oninput="saveAndCalculate()">
-            </div>
-          </div>
-          <div>
-            <label class="block text-sm font-bold text-slate-700 mb-1">Interest Rate (APR)</label>
-            <div class="relative">
-              <span class="absolute right-4 top-3.5 text-slate-400 font-bold">%</span>
-              <input type="number" id="apr" value="24.9" step="0.1" class="w-full pl-4 pr-9 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 font-semibold text-lg transition" oninput="saveAndCalculate()">
-            </div>
-          </div>
-          <div>
-            <label class="block text-sm font-bold text-slate-700 mb-1">Current Monthly Payment</label>
-            <div class="relative">
-              <span class="absolute left-4 top-3.5 text-slate-400 font-bold">$</span>
-              <input type="number" id="payment" value="400" class="w-full pl-9 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 font-semibold text-lg transition" oninput="saveAndCalculate()">
-            </div>
-          </div>
+      <!-- LEFT PANEL : DEBTS LIST -->
+      <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 lg:col-span-6 flex flex-col">
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-xl brand-font text-slate-900">Your Debts</h3>
+          <button onclick="addDebtRow()" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-600 text-xs font-bold px-3 py-2 rounded-xl transition flex items-center">
+            + Add Debt
+          </button>
+        </div>
 
-          <!-- THE DAILY SACRIFICE SLIDER -->
-          <div class="pt-6 border-t border-slate-100 mt-6 no-print">
-            <label class="block text-sm font-bold text-indigo-600 mb-2 flex justify-between">
-              <span>Add Extra Payment</span>
-              <span id="extra-display" class="bg-indigo-100 px-2 py-0.5 rounded text-indigo-800">$50 / mo</span>
-            </label>
-            <input type="range" id="extra-payment" min="0" max="1000" step="10" value="50" class="w-full accent-indigo-600" oninput="updateDisplay(); saveAndCalculate()">
-            
-            <div class="mt-3 bg-indigo-50 border border-indigo-100 rounded-lg p-3 text-center">
-              <p class="text-xs text-indigo-800 font-semibold">💡 That's just <span id="daily-sacrifice" class="text-indigo-600 font-bold text-sm">$1.66 / day</span></p>
-              <p class="text-xs text-indigo-500 mt-1">Skip one coffee or fast food meal to crush your debt.</p>
-            </div>
-          </div>
+        <div id="debts-container" class="space-y-4 overflow-y-auto max-h-[500px] pr-2">
+          <!-- Rempli dynamiquement par JS -->
         </div>
       </div>
 
-      <!-- RIGHT PANEL : DASHBOARD & CHART -->
-      <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 lg:col-span-8 flex flex-col">
+      <!-- RIGHT PANEL : RESULTS & CHART -->
+      <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 lg:col-span-6 flex flex-col">
+        <h3 class="text-xl brand-font text-slate-900 mb-6">Payoff Summary</h3>
         
-        <!-- Top Stats -->
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+        <div class="grid grid-cols-2 gap-4 mb-6">
           <div class="bg-slate-900 p-5 rounded-2xl text-white">
             <p class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Debt-Free Date</p>
             <p id="debt-date" class="text-2xl md:text-3xl brand-font text-emerald-400">--</p>
-            <p id="time-saved" class="text-sm text-emerald-200 mt-2 font-medium">--</p>
+            <p id="total-months" class="text-xs text-slate-300 mt-1">--</p>
           </div>
           <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
             <p class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Total Interest</p>
             <p id="total-interest" class="text-2xl brand-font text-slate-800">--</p>
           </div>
-          <div class="bg-emerald-50 p-5 rounded-2xl border border-emerald-200 col-span-2 md:col-span-1">
-            <p class="text-emerald-700 text-xs font-bold uppercase tracking-wider mb-1">Interest Saved</p>
-            <p id="interest-saved" class="text-2xl md:text-3xl brand-font text-emerald-600">--</p>
-          </div>
-        </div>
-
-        <!-- Smart Affiliate Alert -->
-        <div id="smart-alert" class="hidden no-print bg-rose-50 border-2 border-rose-200 rounded-xl p-4 mb-6 flex flex-col sm:flex-row items-center justify-between shadow-sm">
-          <div class="flex items-center mb-3 sm:mb-0">
-            <span class="text-2xl mr-3">⚠️</span>
-            <div>
-              <p class="text-rose-800 font-bold text-sm">High APR Warning: Your bank is draining your money.</p>
-              <p class="text-rose-600 text-xs mt-1">Transfer this balance to a 0% APR Card and automatically save <strong id="smart-alert-saved">--</strong> in interest.</p>
-            </div>
-          </div>
-          <a href="#" class="bg-rose-600 hover:bg-rose-700 text-white text-sm font-bold py-2.5 px-5 rounded-lg whitespace-nowrap transition shadow-md">
-            Compare 0% Cards
-          </a>
         </div>
 
         <div id="error-msg" class="hidden bg-red-50 text-red-600 p-4 rounded-xl text-sm font-bold mb-6 border border-red-200">
-          Your total payment is too low to cover the monthly interest. Increase your payment or extra amount.
+          Some minimum payments are too low to cover monthly interest. Please increase them.
         </div>
 
         <!-- Chart Area -->
@@ -138,48 +109,10 @@
       </div>
     </div>
 
-    <!-- GAMIFICATION SECTION -->
-    <div class="grid lg:grid-cols-3 gap-8 mb-8 no-print">
-      
-      <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 lg:col-span-2">
-        <h3 class="text-lg brand-font text-slate-900 mb-4">🎯 Your Milestone Roadmap</h3>
-        <p class="text-sm text-slate-500 mb-6">Print this out and stick it on your fridge. Celebrate these micro-victories!</p>
-        
-        <div class="flex flex-col sm:flex-row justify-between space-y-4 sm:space-y-0 sm:space-x-4">
-          <div class="flex-1 bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
-            <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">1</div>
-            <p class="text-xs font-bold text-slate-400 uppercase">25% Paid Off</p>
-            <p id="ms-25" class="text-lg brand-font text-slate-800 mt-1">--</p>
-          </div>
-          <div class="flex-1 bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
-            <div class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-2 font-bold">2</div>
-            <p class="text-xs font-bold text-slate-400 uppercase">Halfway There (50%)</p>
-            <p id="ms-50" class="text-lg brand-font text-slate-800 mt-1">--</p>
-          </div>
-          <div class="flex-1 bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-center shadow-sm">
-            <div class="w-10 h-10 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto mb-2 font-bold">3</div>
-            <p class="text-xs font-bold text-emerald-700 uppercase">100% Debt Free</p>
-            <p id="ms-100" class="text-lg brand-font text-emerald-900 mt-1">--</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="bg-gradient-to-br from-indigo-900 to-slate-900 p-6 rounded-3xl shadow-sm border border-slate-800 text-white flex flex-col justify-center text-center">
-        <h3 class="text-lg brand-font mb-2">📈 Credit Score Impact</h3>
-        <p class="text-sm text-indigo-200 mb-6">Eliminating this debt drastically lowers your <em>Credit Utilization Ratio</em>. You could see your FICO Score jump by up to:</p>
-        <div class="text-4xl brand-font text-emerald-400 mb-6">+40 to +70 pts</div>
-        <a href="#" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-4 rounded-xl transition text-sm">
-          Check My Free Credit Score
-        </a>
-        <p class="text-xs text-slate-400 mt-3">Does not hurt your score.</p>
-      </div>
-
-    </div>
-
-    <!-- AMORTIZATION SCHEDULE & EXPORT -->
+    <!-- AMORTIZATION SCHEDULE -->
     <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden mb-12">
       <button onclick="toggleSchedule()" class="w-full p-6 text-left flex justify-between items-center bg-slate-50 hover:bg-slate-100 transition focus:outline-none no-print">
-        <span class="text-lg brand-font text-slate-900">View Year-by-Year Payment Schedule</span>
+        <span class="text-lg brand-font text-slate-900">View Payoff Timeline Schedule</span>
         <svg id="schedule-icon" class="w-6 h-6 text-slate-400 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
       </button>
       
@@ -188,10 +121,10 @@
           <table class="w-full text-left border-collapse">
             <thead>
               <tr class="text-sm font-bold text-slate-500 uppercase tracking-wider border-b border-slate-200">
-                <th class="py-3 px-4">Date</th>
-                <th class="py-3 px-4">Remaining Balance</th>
-                <th class="py-3 px-4">Interest Paid (Year)</th>
-                <th class="py-3 px-4">Principal Paid (Year)</th>
+                <th class="py-3 px-4">Month / Year</th>
+                <th class="py-3 px-4">Total Remaining Balance</th>
+                <th class="py-3 px-4">Interest Paid (Month)</th>
+                <th class="py-3 px-4">Principal Paid (Month)</th>
               </tr>
             </thead>
             <tbody id="schedule-body" class="text-sm text-slate-700">
@@ -200,15 +133,9 @@
 
           <div class="mt-8 flex flex-col sm:flex-row gap-4 border-t border-slate-100 pt-6 no-print">
             <button onclick="window.print()" class="flex-1 bg-white border-2 border-slate-300 hover:border-slate-400 text-slate-700 font-bold py-3 px-4 rounded-xl flex items-center justify-center transition">
-              <svg class="w-5 h-5 mr-2 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
               Save as PDF / Print Plan
             </button>
-            <button onclick="exportToExcel()" class="flex-1 bg-emerald-50 text-emerald-700 border-2 border-emerald-200 hover:bg-emerald-100 hover:border-emerald-300 font-bold py-3 px-4 rounded-xl flex items-center justify-center transition">
-              <svg class="w-5 h-5 mr-2 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-              Export to Excel (CSV)
-            </button>
           </div>
-
         </div>
       </div>
     </div>
@@ -218,195 +145,202 @@
   <!-- FOOTER -->
   <footer class="bg-slate-900 text-slate-400 py-10 mt-auto text-center text-sm no-print">
     <div class="max-w-7xl mx-auto px-4">
-      <div class="space-x-4 mb-4">
-        <a href="privacy.html" class="hover:text-white">Privacy Policy</a>
-        <a href="terms.html" class="hover:text-white">Terms of Service</a>
-      </div>
-      <p>&copy; 2026 WealthHub. Tools for illustrative purposes. Not legal or financial advice.</p>
+      <p>&copy; 2026 WealthHub. Tools for illustrative purposes. Not financial advice.</p>
     </div>
   </footer>
 
-  <!-- SCRIPT ENGINE -->
+  <!-- MULTI-DEBT ENGINE SCRIPT -->
   <script>
     let payoffChart = null;
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
+    // Default debts array
+    let debts = [
+      { name: "Credit Card", balance: 4500, apr: 24.9, minPayment: 120 },
+      { name: "Car Loan", balance: 12000, apr: 7.5, minPayment: 300 },
+      { name: "Personal Loan", balance: 8000, apr: 12.0, minPayment: 200 }
+    ];
+
+    function renderDebts() {
+      const container = document.getElementById('debts-container');
+      container.innerHTML = "";
+      debts.forEach((debt, index) => {
+        container.innerHTML += `
+          <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl relative space-y-3">
+            <div class="flex justify-between items-center">
+              <input type="text" value="${debt.name}" oninput="updateDebt(${index}, 'name', this.value)" class="font-bold text-slate-800 bg-transparent border-b border-transparent hover:border-slate-300 focus:border-indigo-500 focus:outline-none">
+              <button onclick="removeDebt(${index})" class="text-slate-400 hover:text-red-500 text-sm font-bold">&times; Remove</button>
+            </div>
+            <div class="grid grid-cols-3 gap-3 text-xs">
+              <div>
+                <label class="text-slate-500 font-semibold">Balance ($)</label>
+                <input type="number" value="${debt.balance}" oninput="updateDebt(${index}, 'balance', this.value)" class="w-full p-2 bg-white border border-slate-300 rounded-lg font-semibold mt-1">
+              </div>
+              <div>
+                <label class="text-slate-500 font-semibold">APR (%)</label>
+                <input type="number" step="0.1" value="${debt.apr}" oninput="updateDebt(${index}, 'apr', this.value)" class="w-full p-2 bg-white border border-slate-300 rounded-lg font-semibold mt-1">
+              </div>
+              <div>
+                <label class="text-slate-500 font-semibold">Min Pay ($)</label>
+                <input type="number" value="${debt.minPayment}" oninput="updateDebt(${index}, 'minPayment', this.value)" class="w-full p-2 bg-white border border-slate-300 rounded-lg font-semibold mt-1">
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      saveToLocalStorage();
+      calculate();
+    }
+
+    function addDebtRow() {
+      debts.push({ name: "New Debt", balance: 2000, apr: 15.0, minPayment: 60 });
+      renderDebts();
+    }
+
+    function removeDebt(index) {
+      if(debts.length <= 1) { alert("You need at least one debt."); return; }
+      debts.splice(index, 1);
+      renderDebts();
+    }
+
+    function updateDebt(index, field, value) {
+      if (field === 'name') {
+        debts[index][field] = value;
+      } else {
+        debts[index][field] = parseFloat(value) || 0;
+      }
+      saveToLocalStorage();
+      calculate();
+    }
+
     function updateDisplay() {
       const extra = document.getElementById('extra-payment').value;
       document.getElementById('extra-display').innerText = "$" + extra + " / mo";
-      const daily = (extra / 30).toFixed(2);
-      document.getElementById('daily-sacrifice').innerText = "$" + daily + " / day";
     }
 
     function toggleSchedule() {
       const container = document.getElementById('schedule-table-container');
       const icon = document.getElementById('schedule-icon');
-      if (container.classList.contains('schedule-hidden')) {
-        container.classList.remove('schedule-hidden');
-        container.classList.add('schedule-visible');
-        icon.classList.add('rotate-180');
-      } else {
-        container.classList.remove('schedule-visible');
-        container.classList.add('schedule-hidden');
-        icon.classList.remove('rotate-180');
-      }
+      container.classList.toggle('schedule-hidden');
+      container.classList.toggle('schedule-visible');
+      icon.classList.toggle('rotate-180');
     }
 
-    function exportToExcel() {
-      let csvContent = "data:text/csv;charset=utf-8,";
-      csvContent += "Date,Remaining Balance,Interest Paid,Principal Paid\n";
-      const rows = document.querySelectorAll("#schedule-body tr");
-      if(rows.length === 0) { alert("Please calculate your plan first."); return; }
-
-      rows.forEach(function(row) {
-        let cols = row.querySelectorAll("td");
-        let rowData = [];
-        cols.forEach(function(col) {
-          rowData.push(col.innerText.replace(/\$|,/g, ""));
-        });
-        csvContent += rowData.join(",") + "\n";
-      });
-
-      const encodedUri = encodeURI(csvContent);
-      const link = document.createElement("a");
-      link.setAttribute("href", encodedUri);
-      link.setAttribute("download", "WealthHub_Payoff_Plan.csv");
-      document.body.appendChild(link); link.click(); document.body.removeChild(link);
+    function saveToLocalStorage() {
+      localStorage.setItem('wh_debts', JSON.stringify(debts));
+      localStorage.setItem('wh_extra_multi', document.getElementById('extra-payment').value);
+      localStorage.setItem('wh_strategy', document.getElementById('strategy').value);
     }
 
-    // LocalStorage Functions
-    function saveInputs() {
-      localStorage.setItem('wh_balance', document.getElementById('balance').value);
-      localStorage.setItem('wh_apr', document.getElementById('apr').value);
-      localStorage.setItem('wh_payment', document.getElementById('payment').value);
-      localStorage.setItem('wh_extra', document.getElementById('extra-payment').value);
-    }
-
-    function loadInputs() {
-      if(localStorage.getItem('wh_balance')) document.getElementById('balance').value = localStorage.getItem('wh_balance');
-      if(localStorage.getItem('wh_apr')) document.getElementById('apr').value = localStorage.getItem('wh_apr');
-      if(localStorage.getItem('wh_payment')) document.getElementById('payment').value = localStorage.getItem('wh_payment');
-      if(localStorage.getItem('wh_extra')) document.getElementById('extra-payment').value = localStorage.getItem('wh_extra');
-    }
-
-    function saveAndCalculate() {
-      saveInputs();
+    function loadFromLocalStorage() {
+      if(localStorage.getItem('wh_debts')) debts = JSON.parse(localStorage.getItem('wh_debts'));
+      if(localStorage.getItem('wh_extra_multi')) document.getElementById('extra-payment').value = localStorage.getItem('wh_extra_multi');
+      if(localStorage.getItem('wh_strategy')) document.getElementById('strategy').value = localStorage.getItem('wh_strategy');
       updateDisplay();
-      calculate();
     }
 
     function calculate() {
-      const balance = parseFloat(document.getElementById('balance').value);
-      const aprValue = parseFloat(document.getElementById('apr').value);
-      const apr = aprValue / 100;
-      const basePayment = parseFloat(document.getElementById('payment').value);
-      const extraPayment = parseFloat(document.getElementById('extra-payment').value);
-      const errorMsg = document.getElementById('error-msg');
-      const smartAlert = document.getElementById('smart-alert');
+      const strategy = document.getElementById('strategy').value;
+      const extraBudget = parseFloat(document.getElementById('extra-payment').value) || 0;
+      const errorMsg =- document.getElementById('error-msg');
 
-      if (isNaN(balance) || isNaN(apr) || isNaN(basePayment)) return;
+      // Deep copy debts for simulation
+      let simDebts = JSON.parse(JSON.stringify(debts));
+      
+      // Validate minimum payments cover interest
+      let hasError = false;
+      simDebts.forEach(d => {
+        if (d.minPayment <= d.balance * (d.apr / 100 / 12)) hasError = true;
+      });
 
-      const monthlyRate = apr / 12;
-      const totalPayment = basePayment + extraPayment;
-
-      // Fix: Check total payment against monthly interest to prevent false errors when extra payment is used
-      if (totalPayment <= balance * monthlyRate) {
-        errorMsg.classList.remove('hidden'); smartAlert.classList.add('hidden');
-        document.getElementById('debt-date').innerText = "Never";
-        document.getElementById('total-interest').innerText = "Infinite";
-        document.getElementById('interest-saved').innerText = "$0";
-        document.getElementById('time-saved').innerText = "Debt is growing";
-        document.getElementById('ms-25').innerText = "--";
-        document.getElementById('ms-50').innerText = "--";
-        document.getElementById('ms-100').innerText = "--";
+      if (hasError || simDebts.length === 0) {
+        document.getElementById('error-msg').classList.remove('hidden');
+        document.getElementById('debt-date').innerText = "--";
+        document.getElementById('total-interest').innerText = "--";
         if(payoffChart) payoffChart.destroy();
-        document.getElementById('schedule-body').innerHTML = "";
         return;
       }
-      errorMsg.classList.add('hidden');
+      document.getElementById('error-msg').classList.add('hidden');
+
+      let months = 0;
+      let totalInterestPaid = 0;
+      let chartLabels = ["Start"];
+      let chartData = [simDebts.reduce((sum, d) => sum + d.balance, 0)];
+      let scheduleHTML = "";
 
       const today = new Date();
       today.setFullYear(2026);
 
-      let b1 = balance, months1 = 0, int1 = 0;
-      while(b1 > 0 && months1 < 1200) {
-        let i = b1 * monthlyRate; int1 += i; b1 -= (basePayment - i); months1++;
-      }
+      while (simDebts.some(d => d.balance > 0) && months < 1200) {
+        months++;
+        let monthlyExtra = extraBudget;
+        let monthInterest = 0;
+        let monthPrincipal = 0;
 
-      let b2 = balance, months2 = 0, int2 = 0;
-      let chartLabels = [], chartData = [];
-      let scheduleHTML = "";
-      let yearlyInterest = 0, yearlyPrincipal = 0;
+        // Sort debts based on strategy
+        simDebts.sort((a, b) => {
+          if (a.balance <= 0) return 1;
+          if (b.balance <= 0) return -1;
+          if (strategy === 'avalanche') return b.apr - a.apr; // Highest APR first
+          if (strategy === 'snowball') return a.balance - b.balance; // Lowest balance first
+        });
 
-      let m25 = null, m50 = null, m100 = null;
+        // Pay minimums first
+        simDebts.forEach(d => {
+          if (d.balance > 0) {
+            let interest = d.balance * (d.apr / 100 / 12);
+            monthInterest += interest;
+            let principal = d.minPayment - interest;
+            if (principal > d.balance) principal = d.balance;
+            d.balance -= principal;
+            monthPrincipal += principal;
 
-      chartLabels.push("Start");
-      chartData.push(balance);
+            if (d.balance <= 0) {
+              monthlyExtra += d.minPayment; // Roll over min payment
+            }
+          }
+        });
 
-      while(b2 > 0 && months2 < 1200) {
-        let i = b2 * monthlyRate; int2 += i;
-        let principal = totalPayment - i;
-        if(principal > b2) principal = b2;
-        b2 -= principal;
-        
-        yearlyInterest += i; yearlyPrincipal += principal;
-        months2++;
-        
-        let percentPaid = (balance - b2) / balance;
-        if (percentPaid >= 0.25 && !m25) { let d = new Date(today.getFullYear(), today.getMonth() + months2, 1); m25 = monthNames[d.getMonth()] + " " + d.getFullYear(); }
-        if (percentPaid >= 0.50 && !m50) { let d = new Date(today.getFullYear(), today.getMonth() + months2, 1); m50 = monthNames[d.getMonth()] + " " + d.getFullYear(); }
-        
-        if (months2 % 12 === 0 || b2 <= 0) {
-          let stepDate = new Date(today.getFullYear(), today.getMonth() + months2, 1);
-          chartLabels.push(stepDate.getFullYear());
-          chartData.push(Math.max(0, b2));
-          
+        // Apply extra budget to target debt
+        for (let d of simDebts) {
+          if (d.balance > 0 && monthlyExtra > 0) {
+            let principal = monthlyExtra;
+            if (principal > d.balance) principal = d.balance;
+            d.balance -= principal;
+            monthPrincipal += principal;
+            monthlyExtra -= principal;
+          }
+        }
+
+        totalInterestPaid += monthInterest;
+        let currentTotalBalance = simDebts.reduce((sum, d) => sum + Math.max(0, d.balance), 0);
+
+        if (months % 12 === 0 || currentTotalBalance <= 0) {
+          let stepDate = new Date(today.getFullYear(), today.getMonth() + months, 1);
+          chartLabels.push(monthNames[stepDate.getMonth()] + " " + stepDate.getFullYear());
+          chartData.push(Math.max(0, currentTotalBalance));
+
           scheduleHTML += `
             <tr class="border-b border-slate-100 hover:bg-slate-50 transition">
               <td class="py-3 px-4 font-semibold text-slate-900">${monthNames[stepDate.getMonth()]} ${stepDate.getFullYear()}</td>
-              <td class="py-3 px-4">$${Math.max(0, b2).toLocaleString('en-US', {maximumFractionDigits:0})}</td>
-              <td class="py-3 px-4 text-amber-600">$${yearlyInterest.toLocaleString('en-US', {maximumFractionDigits:0})}</td>
-              <td class="py-3 px-4 text-emerald-600">$${yearlyPrincipal.toLocaleString('en-US', {maximumFractionDigits:0})}</td>
+              <td class="py-3 px-4">$${Math.max(0, currentTotalBalance).toLocaleString('en-US', {maximumFractionDigits:0})}</td>
+              <td class="py-3 px-4 text-amber-600">$${monthInterest.toLocaleString('en-US', {maximumFractionDigits:0})}</td>
+              <td class="py-3 px-4 text-emerald-600">$${monthPrincipal.toLocaleString('en-US', {maximumFractionDigits:0})}</td>
             </tr>
           `;
-          yearlyInterest = 0; yearlyPrincipal = 0;
         }
+
+        if (currentTotalBalance <= 0) break;
       }
 
-      const freeDate = new Date(today.getFullYear(), today.getMonth() + months2, 1);
-      m100 = monthNames[freeDate.getMonth()] + " " + freeDate.getFullYear();
-      
-      document.getElementById('debt-date').innerText = m100;
-      document.getElementById('total-interest').innerText = "$" + int2.toLocaleString('en-US', {maximumFractionDigits:0});
-      
-      const saved = Math.max(0, int1 - int2);
-      document.getElementById('interest-saved').innerText = "$" + saved.toLocaleString('en-US', {maximumFractionDigits:0});
-      
-      const mSaved = months1 - months2;
-      if (mSaved > 0) {
-        let y = Math.floor(mSaved/12), m = mSaved%12;
-        let txt = "Paid off ";
-        if(y>0) txt += y + " yr" + (y>1?"s":"") + " ";
-        if(m>0) txt += m + " mo" + (m>1?"s":"");
-        document.getElementById('time-saved').innerText = txt + " earlier!";
-      } else {
-        document.getElementById('time-saved').innerText = "Base Plan";
-      }
-
-      document.getElementById('ms-25').innerText = m25 || m100;
-      document.getElementById('ms-50').innerText = m50 || m100;
-      document.getElementById('ms-100').innerText = m100;
+      // Display results
+      const freeDate = new Date(today.getFullYear(), today.getMonth() + months, 1);
+      document.getElementById('debt-date').innerText = monthNames[freeDate.getMonth()] + " " + freeDate.getFullYear();
+      document.getElementById('total-months').innerText = `(${Math.floor(months/12)} yrs ${months%12} mos total)`;
+      document.getElementById('total-interest').innerText = "$" + totalInterestPaid.toLocaleString('en-US', {maximumFractionDigits:0});
       document.getElementById('schedule-body').innerHTML = scheduleHTML;
 
-      if (aprValue >= 18) {
-        smartAlert.classList.remove('hidden');
-        smartAlert.classList.add('flex');
-        document.getElementById('smart-alert-saved').innerText = "$" + int2.toLocaleString('en-US', {maximumFractionDigits:0});
-      } else {
-        smartAlert.classList.add('hidden');
-        smartAlert.classList.remove('flex');
-      }
-
+      // Update Chart
       const ctx = document.getElementById('payoffChart').getContext('2d');
       if(payoffChart) payoffChart.destroy();
       payoffChart = new Chart(ctx, {
@@ -414,9 +348,9 @@
         data: {
           labels: chartLabels,
           datasets: [{
-            label: 'Remaining Balance',
+            label: 'Total Remaining Balance',
             data: chartData,
-            borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)',
+            borderColor: '#6366f1', backgroundColor: 'rgba(99, 102, 241, 0.1)',
             borderWidth: 3, fill: true, tension: 0.3
           }]
         },
@@ -424,17 +358,16 @@
           responsive: true, maintainAspectRatio: false,
           plugins: { legend: { display: false } },
           scales: {
-            y: { beginAtZero: true, ticks: { font: { family: 'Inter' }, callback: (val) => '$'+val } },
-            x: { ticks: { maxTicksLimit: 6, font: { family: 'Inter' } } }
+            y: { beginAtZero: true, ticks: { callback: (val) => '$'+val } },
+            x: { ticks: { maxTicksLimit: 6 } }
           }
         }
       });
     }
 
     window.onload = function() {
-      loadInputs();
-      updateDisplay();
-      calculate();
+      loadFromLocalStorage();
+      renderDebts();
     };
   </script>
 </body>
