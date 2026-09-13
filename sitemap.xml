@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Page d'accueil -->
+  <url>
+    <loc>https://yassine1999011.github.io/wealthhub/</loc>
+    <lastmod>2026-09-13</lastmod>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- Calculateur FIRE -->
+  <url>
+    <loc>https://yassine1999011.github.io/wealthhub/nom-de-ta-page-fire.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Calculateur S&P 500 -->
+  <url>
+    <loc>https://yassine1999011.github.io/wealthhub/nom-de-ta-page-sp500.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Calculateur HSA -->
+  <url>
+    <loc>https://yassine1999011.github.io/wealthhub/nom-de-ta-page-hsa.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+</urlset>
