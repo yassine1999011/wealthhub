@@ -13,76 +13,128 @@
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
+    <!-- HEADER -->
     <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2"><span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent brand-font">WealthHub</span></a>
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent brand-font">WealthHub</span>
+            </a>
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-                <a href="index.html">Home</a><a href="blog.html" class="text-emerald-600 font-semibold">Blog</a><a href="compound-calculator.html">Calculators</a>
+                <a href="index.html" class="hover:text-emerald-600 transition">Home</a>
+                <a href="blog.html" class="text-emerald-600 font-semibold">Blog</a>
+                <a href="compound-calculator.html" class="hover:text-emerald-600 transition">Calculators</a>
             </nav>
-            <a href="compound-calculator.html" class="bg-emerald-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Try Calculators</a>
+            <a href="compound-calculator.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
+                Try Calculators
+            </a>
         </div>
     </header>
 
+    <!-- ARTICLE CONTAINER -->
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow">
+        
+        <!-- ARTICLE HEADER -->
         <div class="mb-10 text-center">
-            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Real Estate</span>
+            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Real Estate Masterclass</span>
             <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-4 mb-4">
                 Rent vs. Buy Calculator Guide: Making the Right US Move
             </h1>
-            <p class="text-sm text-slate-500">Published in 2026 • 6 min read</p>
+            <p class="text-sm text-slate-500">Published in 2026 • 12 min read • By WealthHub Editorial Team</p>
         </div>
 
-        <div class="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-12 shadow-sm space-y-6 text-slate-700 text-base leading-relaxed">
-            <p class="text-lg font-medium text-slate-900">
-                The debate between renting and buying a home is one of the biggest financial decisions you will face in the United States. While homeownership builds long-term equity, renting offers flexibility and lower upfront capital commitments.
+        <!-- ARTICLE CONTENT (LONG FORM) -->
+        <div class="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8 text-slate-700 text-base leading-relaxed">
+            
+            <p class="text-xl font-medium text-slate-900 leading-relaxed">
+                The debate between renting a home and buying property is one of the most significant financial and lifestyle decisions you will ever make in the United States. While conventional wisdom often brands renting as "throwing money away," a rigorous mathematical analysis reveals that buying is not always the superior financial choice, especially in high-interest-rate environments and expensive metropolitan housing markets.
             </p>
 
-            <h2 class="text-2xl font-bold text-slate-900 pt-4">Key Factors to Analyze</h2>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 pt-4">1. Hidden Costs of Homeownership Beyond the Mortgage</h2>
             <p>
-                Beyond monthly mortgage payments, buyers must factor in property taxes, homeowner insurance, maintenance costs (typically 1% to 2% of home value annually), and transaction fees when selling.
+                When comparing renting to buying, most people mistakenly look only at monthly rent versus a monthly mortgage payment (Principal and Interest). True homeownership in the US carries substantial secondary costs that renters never have to worry about:
             </p>
+            <ul class="list-disc pl-6 space-y-3 text-slate-700">
+                <li><strong>Property Taxes & Insurance:</strong> Annual local property taxes and homeowners insurance can add hundreds or thousands of dollars to monthly overhead.</li>
+                <li><strong>Maintenance and Repairs:</strong> Financial experts recommend setting aside 1% to 2% of your home's total value every year for unexpected repairs (roof replacement, plumbing, HVAC failures).</li>
+                <li><strong>Transaction Friction:</strong> Buying and selling real estate involves hefty closing costs, realtor commissions (often 5% to 6%), and transfer taxes that can wipe out short-term appreciation gains.</li>
+            </ul>
 
-            <!-- ADVERT 1 -->
+            <!-- 🎯 ADVERT 1: In-Content AdSense Slot -->
             <div class="my-8 p-4 bg-slate-50 border border-dashed border-slate-300 rounded-2xl text-center">
                 <span class="block text-[10px] tracking-widest text-slate-400 uppercase mb-2">Advertisement</span>
-                <div class="h-24 flex items-center justify-center bg-slate-100 rounded-xl text-xs text-slate-400 font-mono">[ AdSense Banner ]</div>
+                <div class="h-24 flex items-center justify-center bg-slate-100 rounded-xl text-xs text-slate-400 font-mono">
+                    [ Google AdSense Banner Slot 1 ]
+                </div>
             </div>
 
-            <!-- CALCULATOR BRIDGE -->
-            <div class="my-8 p-6 bg-cyan-50/60 border border-cyan-200 rounded-2xl border-l-4 border-l-cyan-600">
-                <h3 class="text-lg font-bold text-slate-900 mb-2">🏠 Interactive Solution: Financial Simulator</h3>
-                <p class="text-sm text-slate-600 mb-4">Compare opportunity costs, appreciation rates, and long-term net worth outcomes between renting and buying.</p>
-                <a href="compound-calculator.html" class="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition">
-                    Test Calculator &rarr;
-                </a>
-            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 pt-4">2. The Power of Opportunity Cost (The "Buy vs. Rent" Math)</h2>
+            <p>
+                When you buy a house, your down payment is locked up in an illiquid asset. When you rent, you often have a smaller upfront cash requirement, leaving the difference available to invest in the stock market (such as S&P 500 index funds). 
+            </p>
+            <p>
+                If the stock market outperforms local real estate appreciation over your time horizon, renting and investing the difference can actually yield a higher net worth than buying a home. The tipping point depends heavily on your timeline: generally, if you plan to stay in a home for less than 5 to 7 years, renting wins; for 10+ years, buying usually pulls ahead.
+            </p>
 
-            <!-- AFFILIATE BOX -->
+            <!-- 🌟 AFFILIATE BOX: Editor's Choice -->
             <div class="my-10 p-6 sm:p-8 bg-emerald-50/60 border border-emerald-200/80 rounded-2xl border-l-4 border-l-emerald-600 shadow-sm">
                 <div class="flex items-center justify-between flex-wrap gap-4 mb-3">
                     <span class="bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider">Editor's Choice</span>
-                    <span class="text-xs text-slate-500 font-medium">Affiliate Disclosure</span>
+                    <span class="text-xs text-slate-500 font-medium">Disclaimer: We may earn a commission from affiliate partners.</span>
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-2">Compare US Mortgage Rates</h3>
-                <p class="text-sm text-slate-600 mb-6">Find top-rated mortgage lenders and secure competitive financing options for your future home.</p>
-                <a href="#" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-6 py-3 rounded-xl transition">
-                    Compare Lenders &rarr;
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Compare Competitive US Mortgage Lenders</h3>
+                <p class="text-sm text-slate-600 mb-6">
+                    Find top-rated mortgage brokers offering low interest rates, flexible loan terms, and streamlined pre-approval processes for your future home.
+                </p>
+                <a href="#" class="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-sm transition">
+                    Compare Mortgage Rates &rarr;
                 </a>
             </div>
 
-            <!-- ADVERT 2 -->
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 pt-4">3. Lifestyle Flexibility vs. Forced Equity</h2>
+            <p>
+                Beyond pure spreadsheets, the decision involves psychological and lifestyle components:
+            </p>
+            <ul class="list-disc pl-6 space-y-3 text-slate-700">
+                <li><strong>Renting Benefits:</strong> Total geographic mobility, zero responsibility for maintenance, and predictable monthly expenses.</li>
+                <li><strong>Buying Benefits:</strong> Stability, freedom to customize your living space, and a form of "forced savings" as every mortgage payment builds long-term equity.</li>
+            </ul>
+
+            <!-- 🧮 INTERACTIVE SOLUTION BRIDGE -->
+            <div class="my-8 p-6 bg-cyan-50/60 border border-cyan-200 rounded-2xl border-l-4 border-l-cyan-600">
+                <h3 class="text-lg font-bold text-slate-900 mb-2">🧮 Interactive Solution: Rent vs. Buy Financial Simulator</h3>
+                <p class="text-sm text-slate-600 mb-4">Input your local rent, housing prices, mortgage rates, and expected investment returns to see whether renting or buying wins over your timeline.</p>
+                <a href="rent-vs-buy-calculator.html" class="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition">
+                    Open Rent vs. Buy Calculator &rarr;
+                </a>
+            </div>
+
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 pt-4">Conclusion: Run Your Numbers</h2>
+            <p>
+                Never buy a home simply because society tells you to. Evaluate your personal timeline, local market conditions, and opportunity costs objectively to make the financial choice that secures your future.
+            </p>
+
+            <!-- 🎯 ADVERT 2: Bottom Article AdSense Slot -->
             <div class="my-8 p-4 bg-slate-50 border border-dashed border-slate-300 rounded-2xl text-center">
                 <span class="block text-[10px] tracking-widest text-slate-400 uppercase mb-2">Advertisement</span>
-                <div class="h-24 flex items-center justify-center bg-slate-100 rounded-xl text-xs text-slate-400 font-mono">[ AdSense Banner ]</div>
+                <div class="h-24 flex items-center justify-center bg-slate-100 rounded-xl text-xs text-slate-400 font-mono">
+                    [ Google AdSense Banner Slot 2 ]
+                </div>
             </div>
+
         </div>
+
     </main>
 
+    <!-- FOOTER -->
     <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p>&copy; 2026 WealthHub. All rights reserved.</p>
-            <div class="flex gap-6"><a href="privacy-policy.html">Privacy Policy</a><a href="disclaimer.html">Financial Disclaimer</a></div>
+            <div class="flex gap-6">
+                <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
+                <a href="disclaimer.html" class="hover:underline">Financial Disclaimer</a>
+            </div>
         </div>
     </footer>
+
 </body>
 </html>
