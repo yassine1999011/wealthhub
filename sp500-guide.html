@@ -13,76 +13,129 @@
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
+    <!-- HEADER -->
     <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
-            <a href="index.html" class="flex items-center gap-2"><span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent brand-font">WealthHub</span></a>
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent brand-font">WealthHub</span>
+            </a>
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-                <a href="index.html">Home</a><a href="blog.html" class="text-emerald-600 font-semibold">Blog</a><a href="compound-calculator.html">Calculators</a>
+                <a href="index.html" class="hover:text-emerald-600 transition">Home</a>
+                <a href="blog.html" class="text-emerald-600 font-semibold">Blog</a>
+                <a href="compound-calculator.html" class="hover:text-emerald-600 transition">Calculators</a>
             </nav>
-            <a href="compound-calculator.html" class="bg-emerald-600 text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Try Calculators</a>
+            <a href="compound-calculator.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
+                Try Calculators
+            </a>
         </div>
     </header>
 
+    <!-- ARTICLE CONTAINER -->
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow">
+        
+        <!-- ARTICLE HEADER -->
         <div class="mb-10 text-center">
-            <span class="bg-cyan-100 text-cyan-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Index Funds</span>
+            <span class="bg-cyan-100 text-cyan-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Index Funds Masterclass</span>
             <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-4 mb-4">
                 S&P 500 Index Fund Investing: The Ultimate Beginner's Guide
             </h1>
-            <p class="text-sm text-slate-500">Published in 2026 • 7 min read</p>
+            <p class="text-sm text-slate-500">Published in 2026 • 12 min read • By WealthHub Editorial Team</p>
         </div>
 
-        <div class="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-12 shadow-sm space-y-6 text-slate-700 text-base leading-relaxed">
-            <p class="text-lg font-medium text-slate-900">
-                Investing in the US stock market doesn't require picking individual winning stocks. By purchasing low-cost S&P 500 index funds, you instantly own a slice of the 500 largest publicly traded corporations in America.
+        <!-- ARTICLE CONTENT (LONG FORM) -->
+        <div class="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-12 shadow-sm space-y-8 text-slate-700 text-base leading-relaxed">
+            
+            <p class="text-xl font-medium text-slate-900 leading-relaxed">
+                When legendary investor Warren Buffett was asked how the average American should invest their savings, his answer was direct and unchanging: consistently buy a low-cost S&P 500 index fund. You don’t need a Wall Street degree, insider tips, or expensive financial advisors to build lasting wealth. You just need a disciplined framework and access to the 500 largest corporations in the United States.
             </p>
 
-            <h2 class="text-2xl font-bold text-slate-900 pt-4">Why the S&P 500 is the Gold Standard</h2>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 pt-4">1. What is the S&P 500 and Why Does It Matter?</h2>
             <p>
-                Historically, the S&P 500 has delivered an average annual return of around 9% to 10% before inflation. Its automatic rebalancing ensures that failing companies drop out while thriving giants take their place.
+                The Standard & Poor's 500 Index (S&P 500) tracks 500 of the largest publicly traded companies headquartered in the United States, spanning sectors like technology, healthcare, finance, consumer goods, and energy. Together, these corporations represent roughly 80% of the total value of the US stock market.
+            </p>
+            <p>
+                An S&P 500 index fund or exchange-traded fund (ETF) purchases shares in all 500 companies simultaneously proportional to their market capitalization. When you buy a single share of an S&P 500 fund, you instantly own a tiny sliver of tech giants like Apple and Microsoft, healthcare leaders like UnitedHealth, and financial stalwarts like JPMorgan Chase.
             </p>
 
-            <!-- ADVERT 1 -->
+            <!-- 🎯 ADVERT 1: In-Content AdSense Slot -->
             <div class="my-8 p-4 bg-slate-50 border border-dashed border-slate-300 rounded-2xl text-center">
                 <span class="block text-[10px] tracking-widest text-slate-400 uppercase mb-2">Advertisement</span>
-                <div class="h-24 flex items-center justify-center bg-slate-100 rounded-xl text-xs text-slate-400 font-mono">[ AdSense Banner ]</div>
+                <div class="h-24 flex items-center justify-center bg-slate-100 rounded-xl text-xs text-slate-400 font-mono">
+                    [ Google AdSense Banner Slot 1 ]
+                </div>
             </div>
 
-            <!-- SOLUTION / CALCULATOR INTERACTIVE BRIDGE -->
-            <div class="my-8 p-6 bg-cyan-50/60 border border-cyan-200 rounded-2xl border-l-4 border-l-cyan-600">
-                <h3 class="text-lg font-bold text-slate-900 mb-2">📈 Interactive Solution: Compound Interest Simulator</h3>
-                <p class="text-sm text-slate-600 mb-4">Simulate how monthly contributions into an S&P 500 index fund compound over 10, 20, or 30 years.</p>
-                <a href="compound-calculator.html" class="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition">
-                    Launch Calculator &rarr;
-                </a>
-            </div>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 pt-4">2. Index Funds vs. Picking Individual Stocks</h2>
+            <p>
+                Many retail investors fall into the trap of trying to find the next "ten-bagger" stock. However, decades of market data show that over 80% of active mutual fund managers fail to outperform the S&P 500 over a 10-year period.
+            </p>
+            <ul class="list-disc pl-6 space-y-3 text-slate-700">
+                <li><strong>Built-in Self-Cleaning Mechanism:</strong> If a company inside the S&P 500 begins to fail or lose market share, it is automatically removed from the index and replaced by a thriving competitor.</li>
+                <li><strong>Ultra-Low Expense Ratios:</strong> Broad index funds charge minimal management fees (often less than 0.05% annually), ensuring that nearly all compound growth stays in your pocket.</li>
+                <li><strong>Diversification:</strong> Instantly eliminates company-specific risk. If one corporation struggles, the other 499 cushion the impact.</li>
+            </ul>
 
-            <!-- AFFILIATE BOX -->
+            <!-- 🌟 AFFILIATE BOX: Editor's Choice -->
             <div class="my-10 p-6 sm:p-8 bg-emerald-50/60 border border-emerald-200/80 rounded-2xl border-l-4 border-l-emerald-600 shadow-sm">
                 <div class="flex items-center justify-between flex-wrap gap-4 mb-3">
                     <span class="bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider">Editor's Choice</span>
-                    <span class="text-xs text-slate-500 font-medium">Affiliate Disclosure</span>
+                    <span class="text-xs text-slate-500 font-medium">Disclaimer: We may earn a commission from affiliate partners.</span>
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-2">Ready to Buy Your First Index Fund?</h3>
-                <p class="text-sm text-slate-600 mb-6">Compare regulated US brokerage platforms with zero transaction fees.</p>
-                <a href="#" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-6 py-3 rounded-xl transition">
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Start Investing in the S&P 500 Today</h3>
+                <p class="text-sm text-slate-600 mb-6">
+                    Compare top US brokerage accounts offering zero-fee index fund purchases, automated recurring deposits, and tax-advantaged account structures.
+                </p>
+                <a href="#" class="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-sm transition">
                     Compare US Brokerages &rarr;
                 </a>
             </div>
 
-            <!-- ADVERT 2 -->
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 pt-4">3. Step-by-Step Blueprint to Your First Trade</h2>
+            <p>
+                Getting started with index fund investing in the United States is straightforward when broken down into clear steps:
+            </p>
+            <ol class="list-decimal pl-6 space-y-3 text-slate-700">
+                <li><strong>Open a Brokerage or Retirement Account:</strong> Choose between a tax-advantaged account (like a Roth IRA or 401(k)) or a standard taxable brokerage account.</li>
+                <li><strong>Select a Low-Cost Fund:</strong> Look for established S&P 500 tracking funds with negligible expense ratios.</li>
+                <li><strong>Automate Your Contributions:</strong> Set up automatic transfers every payday to enforce dollar-cost averaging and eliminate emotional market timing.</li>
+            </ol>
+
+            <!-- 🧮 INTERACTIVE SOLUTION BRIDGE -->
+            <div class="my-8 p-6 bg-cyan-50/60 border border-cyan-200 rounded-2xl border-l-4 border-l-cyan-600">
+                <h3 class="text-lg font-bold text-slate-900 mb-2">🧮 Interactive Solution: S&P 500 Compound Calculator</h3>
+                <p class="text-sm text-slate-600 mb-4">Simulate how consistent monthly investments into an S&P 500 index fund compound over 10, 20, and 30 years based on historical market averages.</p>
+                <a href="sp500-compound-calculator.html" class="inline-flex items-center gap-2 bg-cyan-600 hover:bg-cyan-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition">
+                    Open S&P 500 Calculator &rarr;
+                </a>
+            </div>
+
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 pt-4">Conclusion: Simplicity Wins</h2>
+            <p>
+                Building wealth doesn't need to be complicated. By anchoring your portfolio to the growth engine of corporate America through low-cost S&P 500 index funds, you set yourself up for long-term financial independence on absolute autopilot.
+            </p>
+
+            <!-- 🎯 ADVERT 2: Bottom Article AdSense Slot -->
             <div class="my-8 p-4 bg-slate-50 border border-dashed border-slate-300 rounded-2xl text-center">
                 <span class="block text-[10px] tracking-widest text-slate-400 uppercase mb-2">Advertisement</span>
-                <div class="h-24 flex items-center justify-center bg-slate-100 rounded-xl text-xs text-slate-400 font-mono">[ AdSense Banner ]</div>
+                <div class="h-24 flex items-center justify-center bg-slate-100 rounded-xl text-xs text-slate-400 font-mono">
+                    [ Google AdSense Banner Slot 2 ]
+                </div>
             </div>
+
         </div>
+
     </main>
 
+    <!-- FOOTER -->
     <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500">
         <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
             <p>&copy; 2026 WealthHub. All rights reserved.</p>
-            <div class="flex gap-6"><a href="privacy-policy.html">Privacy Policy</a><a href="disclaimer.html">Financial Disclaimer</a></div>
+            <div class="flex gap-6">
+                <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
+                <a href="disclaimer.html" class="hover:underline">Financial Disclaimer</a>
+            </div>
         </div>
     </footer>
+
 </body>
 </html>
