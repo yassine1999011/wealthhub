@@ -3,28 +3,35 @@
 
   <!-- Page d'accueil -->
   <url>
-    <loc>https://yassine1999011.github.io/wealthhub/</loc>
+    <loc>https://wealthhubus.com/</loc>
     <lastmod>2026-09-13</lastmod>
     <priority>1.00</priority>
   </url>
 
   <!-- Calculateur FIRE -->
   <url>
-    <loc>https://yassine1999011.github.io/wealthhub/nom-de-ta-page-fire.html</loc>
+    <loc>https://wealthhubus.com/fire-calculator.html</loc>
     <lastmod>2026-09-13</lastmod>
     <priority>0.80</priority>
   </url>
 
   <!-- Calculateur S&P 500 -->
   <url>
-    <loc>https://yassine1999011.github.io/wealthhub/nom-de-ta-page-sp500.html</loc>
+    <loc>https://wealthhubus.com/sp500-compound-calculator.html</loc>
     <lastmod>2026-09-13</lastmod>
     <priority>0.80</priority>
   </url>
 
   <!-- Calculateur HSA -->
   <url>
-    <loc>https://yassine1999011.github.io/wealthhub/nom-de-ta-page-hsa.html</loc>
+    <loc>https://wealthhubus.com/hsa-tax-estimator.html</loc>
+    <lastmod>2026-09-13</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Calculateur Rent vs Buy -->
+  <url>
+    <loc>https://wealthhubus.com/rent-vs-buy-calculator.html</loc>
     <lastmod>2026-09-13</lastmod>
     <priority>0.80</priority>
   </url>
