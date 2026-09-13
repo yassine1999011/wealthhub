@@ -3,117 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WealthHub | Personal Finance Calculators & Strategies</title>
-    <meta name="description" content="Take control of your money with WealthHub: compound interest calculators, 50/30/20 budget planner, FIRE simulator, and expert financial guides.">
-    <meta name="keywords" content="personal finance, financial calculators, compound interest, budget planner, FIRE movement, financial freedom, WealthHub">
+    <title>WealthHub | US Personal Finance, Investing & Retirement Portals</title>
+    <meta name="description" content="Master your personal finance, early retirement (FIRE), S&P 500 investing, and tax strategies in the United States with WealthHub's expert guides and interactive calculators.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Inter', sans-serif; }</style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
 </head>
-<body class="h-full text-slate-900 flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-    <!-- Header / Navigation -->
-    <header class="border-b border-slate-200/80 bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent">WealthHub</span>
-            </div>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="index.html" class="text-sm font-semibold text-slate-900 transition-colors">Home</a>
-                <a href="blog.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors flex items-center gap-1.5">
-                    <span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span> Blog & Guides
-                </a>
-                <a href="about.html" class="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">About</a>
+    <!-- HEADER -->
+    <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent brand-font">WealthHub</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="index.html" class="text-emerald-600 font-semibold">Home</a>
+                <a href="blog.html" class="hover:text-emerald-600 transition">Blog & Guides</a>
+                <a href="compound-calculator.html" class="hover:text-emerald-600 transition">Calculators</a>
+                <a href="about.html" class="hover:text-emerald-600 transition">About</a>
             </nav>
-            <div class="flex items-center gap-4">
-                <a href="blog.html" class="md:hidden text-sm font-semibold text-emerald-600">Blog</a>
-            </div>
+            <a href="compound-calculator.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
+                Try Calculators
+            </a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 flex-grow">
-        <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/60 font-semibold text-xs sm:text-sm mb-6 shadow-xs">
-                <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                Trusted Financial & Wealth Tools for US Investors
-            </div>
-            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6 text-slate-900 leading-[1.15]">
-                Master Your Future with <span class="bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent">Precision</span>
-            </h1>
-            <p class="text-slate-600 text-lg sm:text-xl mb-10 leading-relaxed font-normal">
-                Access powerful calculation tools and expert analyses to optimize your savings, plan early retirement, and eliminate debt.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="blog.html" class="px-8 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold transition-all shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/40 hover:-translate-y-0.5">
-                    Explore Blog & Guides →
-                </a>
-                <a href="#calculators" class="px-8 py-4 rounded-xl bg-white border border-slate-300 hover:border-slate-400 text-slate-700 font-semibold transition-all shadow-xs hover:bg-slate-50">
-                    View Calculators
-                </a>
+    <!-- HERO SECTION -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+        <div class="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-semibold px-4 py-1.5 rounded-full mb-6">
+            <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span> US Financial Freedom & Wealth Portal 2026
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight max-w-4xl mx-auto mb-6">
+            Master Your Wealth. Build Your Future in the US.
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+            Data-driven guides, tax optimization frameworks, and interactive calculators designed to accelerate your journey to financial independence.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="blog.html" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-base px-8 py-4 rounded-2xl shadow-sm transition">
+                Explore All 9 Masterclasses &rarr;
+            </a>
+            <a href="compound-calculator.html" class="bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 font-semibold text-base px-8 py-4 rounded-2xl shadow-sm transition">
+                Launch Calculators
+            </a>
+        </div>
+    </section>
+
+    <!-- ADVERT SLOT 1 -->
+    <div class="max-w-5xl mx-auto px-4 my-6">
+        <div class="p-4 bg-white border border-dashed border-slate-300 rounded-2xl text-center shadow-sm">
+            <span class="block text-[10px] tracking-widest text-slate-400 uppercase mb-2">Advertisement</span>
+            <div class="h-20 flex items-center justify-center bg-slate-50 rounded-xl text-xs text-slate-400 font-mono">
+                [ Google AdSense Header Banner Slot ]
             </div>
         </div>
+    </div>
 
-        <!-- Calculators Grid Section -->
-        <div id="calculators" class="mb-16">
-            <div class="text-center mb-10">
-                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Financial Calculators</h2>
-                <p class="text-slate-500 text-sm sm:text-base mt-2">Select a tool below to start simulating your financial growth</p>
-            </div>
+    <!-- 3 PILLARS ARCHITECTURE SECTION -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-slate-900">The 3 Pillars of Wealth Building</h2>
+            <p class="text-slate-600 mt-2">Structured roadmaps engineered for modern US professionals and investors.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Card 1: Compound -->
-                <a href="compound-calculator.html" class="bg-white border border-slate-200/90 rounded-2xl p-6 hover:border-emerald-500 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xl mb-5 group-hover:scale-110 transition-transform shadow-xs">📈</div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">Compound Interest</h3>
-                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">Simulate the exponential long-term growth of your investments.</p>
-                    </div>
-                    <span class="text-xs font-bold text-emerald-600 flex items-center gap-1.5 pt-4 border-t border-slate-100">Launch Tool <span class="group-hover:translate-x-1 transition-transform">→</span></span>
+            <!-- PILLAR 1: Retirement & FIRE -->
+            <div class="bg-white border border-slate-200/80 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-emerald-500 transition">
+                <div>
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Pillar I</span>
+                    <h3 class="text-2xl font-bold text-slate-900 mt-4 mb-3">Retirement & FIRE</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                        Escape the 9-to-5 rat race early. Master LeanFIRE, FatFIRE, Barista FIRE, and Coast FIRE strategies with our retirement calculators.
+                    </p>
+                    <ul class="space-y-2 text-sm font-medium text-emerald-700 mb-8">
+                        <li>&rarr; <a href="fire-guide.html" class="hover:underline">The Ultimate FIRE Blueprint</a></li>
+                        <li>&rarr; <a href="fire-faces.html" class="hover:underline">Lean, Fat & Barista FIRE</a></li>
+                        <li>&rarr; <a href="coast-fire.html" class="hover:underline">Coast FIRE Strategy Guide</a></li>
+                    </ul>
+                </div>
+                <a href="fire-calculator.html" class="w-full text-center bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-semibold py-3 rounded-xl transition text-sm">
+                    Open FIRE Calculators &rarr;
                 </a>
+            </div>
 
-                <!-- Card 2: Budget -->
-                <a href="budget-calculator.html" class="bg-white border border-slate-200/90 rounded-2xl p-6 hover:border-emerald-500 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xl mb-5 group-hover:scale-110 transition-transform shadow-xs">💰</div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">50/30/20 Budget</h3>
-                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">Optimize your income allocation across needs, wants, and savings.</p>
-                    </div>
-                    <span class="text-xs font-bold text-emerald-600 flex items-center gap-1.5 pt-4 border-t border-slate-100">Launch Tool <span class="group-hover:translate-x-1 transition-transform">→</span></span>
+            <!-- PILLAR 2: Investing, ETFs & Crypto -->
+            <div class="bg-white border border-slate-200/80 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-cyan-500 transition">
+                <div>
+                    <span class="bg-cyan-100 text-cyan-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Pillar II</span>
+                    <h3 class="text-2xl font-bold text-slate-900 mt-4 mb-3">Investing & ETFs</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                        Grow your capital on autopilot. Learn S&P 500 index fund investing, dividend growth strategies, and top US wealth-building tactics.
+                    </p>
+                    <ul class="space-y-2 text-sm font-medium text-cyan-700 mb-8">
+                        <li>&rarr; <a href="us-wealth-strategies.html" class="hover:underline">Top US Wealth Strategies</a></li>
+                        <li>&rarr; <a href="sp500-guide.html" class="hover:underline">S&P 500 Beginner's Masterclass</a></li>
+                        <li>&rarr; <a href="dividends-guide.html" class="hover:underline">Dividend Growth & DRIP Guide</a></li>
+                    </ul>
+                </div>
+                <a href="sp500-compound-calculator.html" class="w-full text-center bg-cyan-50 hover:bg-cyan-100 text-cyan-800 font-semibold py-3 rounded-xl transition text-sm">
+                    Open S&P 500 Calculator &rarr;
                 </a>
+            </div>
 
-                <!-- Card 3: FIRE -->
-                <a href="fire-calculator.html" class="bg-white border border-slate-200/90 rounded-2xl p-6 hover:border-emerald-500 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xl mb-5 group-hover:scale-110 transition-transform shadow-xs">🔥</div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">FIRE Simulator</h3>
-                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">Calculate the exact timeline to financial independence and retirement.</p>
-                    </div>
-                    <span class="text-xs font-bold text-emerald-600 flex items-center gap-1.5 pt-4 border-t border-slate-100">Launch Tool <span class="group-hover:translate-x-1 transition-transform">→</span></span>
+            <!-- PILLAR 3: Savings, Taxes & Real Estate -->
+            <div class="bg-white border border-slate-200/80 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-indigo-500 transition">
+                <div>
+                    <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Pillar III</span>
+                    <h3 class="text-2xl font-bold text-slate-900 mt-4 mb-3">Taxes & Real Estate</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed mb-6">
+                        Protect your income. Maximize HSA triple-tax advantages, earn high yields on cash reserves, and evaluate rent vs. buy decisions.
+                    </p>
+                    <ul class="space-y-2 text-sm font-medium text-indigo-700 mb-8">
+                        <li>&rarr; <a href="hsa-guide.html" class="hover:underline">HSA Triple Tax Advantage</a></li>
+                        <li>&rarr; <a href="hysa-guide.html" class="hover:underline">HYSA vs. CDs in 2026</a></li>
+                        <li>&rarr; <a href="rent-vs-buy-guide.html" class="hover:underline">Rent vs. Buy Real Estate Guide</a></li>
+                    </ul>
+                </div>
+                <a href="hsa-tax-estimator.html" class="w-full text-center bg-indigo-50 hover:bg-indigo-100 text-indigo-800 font-semibold py-3 rounded-xl transition text-sm">
+                    Open Tax & Savings Tools &rarr;
                 </a>
+            </div>
 
-                <!-- Card 4: Debt -->
-                <a href="debt-calculator.html" class="bg-white border border-slate-200/90 rounded-2xl p-6 hover:border-emerald-500 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-xl mb-5 group-hover:scale-110 transition-transform shadow-xs">🎯</div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-emerald-600 transition-colors">Debt Payoff</h3>
-                        <p class="text-slate-600 text-sm mb-6 leading-relaxed">Compare Debt Snowball and Debt Avalanche strategies to clear debt fast.</p>
-                    </div>
-                    <span class="text-xs font-bold text-emerald-600 flex items-center gap-1.5 pt-4 border-t border-slate-100">Launch Tool <span class="group-hover:translate-x-1 transition-transform">→</span></span>
-                </a>
+        </div>
+    </section>
+
+    <!-- ADVERT SLOT 2 -->
+    <div class="max-w-5xl mx-auto px-4 my-6">
+        <div class="p-4 bg-white border border-dashed border-slate-300 rounded-2xl text-center shadow-sm">
+            <span class="block text-[10px] tracking-widest text-slate-400 uppercase mb-2">Advertisement</span>
+            <div class="h-20 flex items-center justify-center bg-slate-50 rounded-xl text-xs text-slate-400 font-mono">
+                [ Google AdSense Footer Banner Slot ]
             </div>
         </div>
-    </main>
+    </div>
 
-    <!-- Footer -->
-    <footer class="border-t border-slate-200 bg-white py-8 text-center text-xs text-slate-500">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p>&copy; 2026 WealthHub. All rights reserved.</p>
-            <div class="flex space-x-6">
-                <a href="about.html" class="hover:text-slate-900 transition-colors">About Us</a>
-                <a href="legal.html" class="hover:text-slate-900 transition-colors">Legal Terms</a>
-                <a href="blog.html" class="hover:text-slate-900 transition-colors">Blog & Guides</a>
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 py-12 mt-auto text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="text-lg font-extrabold tracking-tight text-slate-900 brand-font">WealthHub</span>
+                <p class="mt-1">Empowering financial independence and smart investing across the United States.</p>
             </div>
+            <div class="flex flex-wrap gap-6 font-medium text-slate-600">
+                <a href="index.html" class="hover:text-emerald-600">Home</a>
+                <a href="blog.html" class="hover:text-emerald-600">Blog</a>
+                <a href="compound-calculator.html" class="hover:text-emerald-600">Calculators</a>
+                <a href="privacy-policy.html" class="hover:text-emerald-600">Privacy Policy</a>
+                <a href="disclaimer.html" class="hover:text-emerald-600">Financial Disclaimer</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-slate-100 text-center">
+            <p>&copy; 2026 WealthHub. All rights reserved. Educational content for informational purposes only.</p>
         </div>
     </footer>
 
