@@ -1,204 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full bg-slate-50">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FIRE & Retirement Calculator | WealthHub</title>
-  <meta name="description" content="Calculate your path to financial independence and early retirement (FIRE) with our interactive projection tool.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIRE Calculator: Calculate Your Financial Independence Number | WealthHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-  <!-- HEADER -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
-      <a href="index.html" class="flex items-center text-2xl brand-font text-slate-900">
-        WealthHub<span class="text-indigo-500">.</span>
-      </a>
-      <nav class="hidden md:flex space-x-6 text-sm font-semibold">
-        <a href="debt-calculator.html" class="text-slate-600 hover:text-indigo-500">Debt Payoff</a>
-        <a href="compound-calculator.html" class="text-slate-600 hover:text-indigo-500">Compound Interest</a>
-        <a href="budget-calculator.html" class="text-slate-600 hover:text-indigo-500">50/30/20 Budget</a>
-        <a href="fire-calculator.html" class="text-indigo-600 font-bold">FIRE Planner</a>
-        <a href="about.html" class="text-slate-600 hover:text-indigo-500">About</a>
-        <a href="legal.html" class="text-slate-600 hover:text-indigo-500">Legal</a>
-      </nav>
-    </div>
-  </header>
+    <!-- HEADER -->
+    <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent brand-font">WealthHub</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="index.html" class="hover:text-emerald-600 transition">Home</a>
+                <a href="blog.html" class="hover:text-emerald-600 transition">Blog</a>
+                <a href="compound-calculator.html" class="text-emerald-600 font-semibold">Calculators</a>
+            </nav>
+            <a href="blog.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
+                Explore Guides
+            </a>
+        </div>
+    </header>
 
-  <main class="flex-grow max-w-7xl mx-auto px-4 py-8 lg:py-12 w-full">
-    
-    <div class="text-center max-w-3xl mx-auto mb-10">
-      <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Financial Independence</span>
-      <h1 class="text-3xl md:text-5xl brand-font text-slate-900 mt-4 mb-4 tracking-tight">FIRE & Retirement Simulator</h1>
-      <p class="text-slate-600 text-lg">Calculate how long it will take to reach your retirement nest egg based on the 4% rule.</p>
-    </div>
-
-    <!-- DASHBOARD GRID -->
-    <div class="grid lg:grid-cols-12 gap-8 mb-12">
-      
-      <!-- CONTROLS PANEL -->
-      <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 lg:col-span-5 space-y-6">
-        <h3 class="text-xl brand-font text-slate-900 mb-4">Parameters</h3>
-
-        <div>
-          <label class="block text-sm font-bold text-slate-700 mb-2">Current Portfolio ($)</label>
-          <input type="number" id="current-savings" value="20000" step="5000" class="w-full p-3 bg-slate-50 border border-slate-300 rounded-xl font-semibold focus:ring-2 focus:ring-indigo-500" oninput="calculateFire()">
+    <!-- CALCULATOR CONTAINER -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow">
+        
+        <div class="mb-10 text-center">
+            <span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Interactive Tool</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-4 mb-3">
+                FIRE Target Number Calculator
+            </h1>
+            <p class="text-base text-slate-600 max-w-2xl mx-auto">
+                Estimate your exact financial independence milestone and see how many years are left until you reach total freedom based on your savings rate.
+            </p>
         </div>
 
-        <div>
-          <label class="block text-sm font-bold text-slate-700 mb-2">Monthly Savings ($)</label>
-          <input type="number" id="monthly-savings" value="1000" step="100" class="w-full p-3 bg-slate-50 border border-slate-300 rounded-xl font-semibold focus:ring-2 focus:ring-indigo-500" oninput="calculateFire()">
-        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-sm">
+            
+            <!-- INPUTS FORM (7 Cols) -->
+            <div class="md:col-span-6 space-y-6">
+                <h2 class="text-xl font-bold text-slate-900 border-b border-slate-100 pb-3">Your Financial Inputs</h2>
+                
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Annual Living Expenses ($)</label>
+                    <input type="number" id="expenses" value="45000" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+                </div>
 
-        <div>
-          <label class="block text-sm font-bold text-slate-700 mb-2">Target Annual Spending in Retirement ($)</label>
-          <input type="number" id="target-spending" value="40000" step="2000" class="w-full p-3 bg-slate-50 border border-slate-300 rounded-xl font-semibold focus:ring-2 focus:ring-indigo-500" oninput="calculateFire()">
-        </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Current Invested Portfolio ($)</label>
+                    <input type="number" id="currentSavings" value="100000" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+                </div>
 
-        <div>
-          <label class="block text-sm font-bold text-slate-700 mb-2 flex justify-between">
-            <span>Estimated Annual Return</span>
-            <span id="fire-rate-display" class="text-indigo-600 font-bold">7.0%</span>
-          </label>
-          <input type="range" id="fire-rate" min="2" max="15" step="0.5" value="7" class="w-full accent-indigo-600" oninput="updateFireRate(); calculateFire()">
-        </div>
-      </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Annual Amount Saved / Invested ($)</label>
+                    <input type="number" id="annualSavings" value="25000" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+                </div>
 
-      <!-- RESULTS & CHART PANEL -->
-      <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 lg:col-span-7 flex flex-col justify-between">
-        <div>
-          <h3 class="text-xl brand-font text-slate-900 mb-6">FIRE Projections</h3>
-          
-          <div class="grid grid-cols-2 gap-4 mb-6">
-            <div class="bg-slate-900 p-5 rounded-2xl text-white">
-              <p class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Target FIRE Nest Egg</p>
-              <p id="fire-target" class="text-2xl md:text-3xl brand-font text-emerald-400">--</p>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Expected Inflation-Adjusted Return (%)</label>
+                    <input type="number" id="returnRate" value="7" step="0.1" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+                </div>
+
+                <button onclick="calculateFIRE()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-sm transition">
+                    Calculate My FIRE Number
+                </button>
             </div>
-            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-              <p class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Time to FIRE</p>
-              <p id="fire-years" class="text-2xl md:text-3xl brand-font text-indigo-600">--</p>
+
+            <!-- RESULTS PANEL (5 Cols) -->
+            <div class="md:col-span-6 bg-slate-900 text-white rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-inner">
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Your Results</span>
+                    <h3 class="text-xl font-bold text-white mt-1 mb-6">Freedom Dashboard</h3>
+
+                    <div class="space-y-6">
+                        <div class="border-b border-slate-800 pb-4">
+                            <span class="block text-xs text-slate-400 uppercase">Target FIRE Nest Egg (4% Rule)</span>
+                            <span id="fireNumber" class="text-3xl font-extrabold text-emerald-400">$1,125,000</span>
+                        </div>
+
+                        <div class="border-b border-slate-800 pb-4">
+                            <span class="block text-xs text-slate-400 uppercase">Estimated Time to FIRE</span>
+                            <span id="yearsToFire" class="text-3xl font-extrabold text-cyan-400">14.2 Years</span>
+                        </div>
+
+                        <div>
+                            <span class="block text-xs text-slate-400 uppercase">Projected Annual Passive Income</span>
+                            <span id="passiveIncome" class="text-2xl font-bold text-white">$45,000 / yr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-800 text-xs text-slate-400">
+                    Calculated using standard compounding formulas based on the Trinity Study (4% safe withdrawal rate).
+                </div>
             </div>
-          </div>
+
         </div>
 
-        <!-- Chart Area -->
-        <div class="relative h-72 w-full mt-6">
-          <canvas id="fireChart"></canvas>
+        <!-- ADVERT SLOT -->
+        <div class="my-10 p-4 bg-white border border-dashed border-slate-300 rounded-2xl text-center shadow-sm">
+            <span class="block text-[10px] tracking-widest text-slate-400 uppercase mb-2">Advertisement</span>
+            <div class="h-20 flex items-center justify-center bg-slate-50 rounded-xl text-xs text-slate-400 font-mono">
+                [ Google AdSense Banner Slot ]
+            </div>
         </div>
-      </div>
 
-    </div>
+    </main>
 
-  </main>
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 WealthHub. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
+                <a href="disclaimer.html" class="hover:underline">Financial Disclaimer</a>
+            </div>
+        </div>
+    </footer>
 
-  <!-- FOOTER -->
-  <footer class="bg-slate-900 text-slate-400 py-10 mt-auto text-center text-sm">
-    <div class="max-w-7xl mx-auto px-4">
-      <p>&copy; 2026 WealthHub. Tools for illustrative purposes. Not financial advice.</p>
-    </div>
-  </footer>
+    <!-- CALCULATOR JAVASCRIPT LOGIC -->
+    <script>
+        function calculateFIRE() {
+            let expenses = parseFloat(document.getElementById('expenses').value) || 0;
+            let currentSavings = parseFloat(document.getElementById('currentSavings').value) || 0;
+            let annualSavings = parseFloat(document.getElementById('annualSavings').value) || 0;
+            let returnRate = (parseFloat(document.getElementById('returnRate').value) || 7) / 100;
 
-  <!-- SCRIPT -->
-  <script>
-    let fireChart = null;
+            // Target FIRE = Expenses * 25 (4% rule)
+            let fireTarget = expenses * 25;
+            document.getElementById('fireNumber').innerText = '$' + fireTarget.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('passiveIncome').innerText = '$' + expenses.toLocaleString('en-US', {maximumFractionDigits: 0}) + ' / yr';
 
-    function updateFireRate() {
-      const rate = document.getElementById('fire-rate').value;
-      document.getElementById('fire-rate-display').innerText = rate + "%";
-    }
+            // Calculate years to reach target with compound interest
+            let years = 0;
+            let portfolio = currentSavings;
+            let maxYears = 100;
 
-    function calculateFire() {
-      const currentSavings = parseFloat(document.getElementById('current-savings').value) || 0;
-      const monthlySavings = parseFloat(document.getElementById('monthly-savings').value) || 0;
-      const targetSpending = parseFloat(document.getElementById('target-spending').value) || 0;
-      const annualRate = parseFloat(document.getElementById('fire-rate').value) / 100 || 0;
-      const monthlyRate = annualRate / 12;
-
-      // 4% Rule: Target = Annual Spending / 0.04 (or Annual Spending * 25)
-      const targetNestEgg = targetSpending * 25;
-      document.getElementById('fire-target').innerText = "$" + Math.round(targetNestEgg).toLocaleString('en-US');
-
-      let labels = [];
-      let portfolioData = [];
-      let targetData = [];
-
-      let balance = currentSavings;
-      let yearsToFire = "40+ Years";
-      let reached = false;
-
-      labels.push("Year 0");
-      portfolioData.push(Math.round(balance));
-      targetData.push(Math.round(targetNestEgg));
-
-      for (let y = 1; y <= 40; y++) {
-        for (let m = 1; m <= 12; m++) {
-          balance = (balance + monthlySavings) * (1 + monthlyRate);
-        }
-        labels.push("Yr " + y);
-        portfolioData.push(Math.round(balance));
-        targetData.push(Math.round(targetNestEgg));
-
-        if (balance >= targetNestEgg && !reached) {
-          yearsToFire = y + (y === 1 ? " Year" : " Years");
-          reached = true;
-        }
-      }
-
-      document.getElementById('fire-years').innerText = yearsToFire;
-
-      const ctx = document.getElementById('fireChart').getContext('2d');
-      if (fireChart) fireChart.destroy();
-
-      fireChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: labels,
-          datasets: [
-            {
-              label: 'Portfolio Value ($)',
-              data: portfolioData,
-              borderColor: '#10b981',
-              backgroundColor: 'rgba(16, 185, 129, 0.1)',
-              borderWidth: 3,
-              fill: true,
-              tension: 0.3
-            },
-            {
-              label: 'FIRE Target ($)',
-              data: targetData,
-              borderColor: '#f43f5e',
-              borderWidth: 2,
-              borderDash: [5, 5],
-              fill: false,
-              tension: 0
+            if (portfolio >= fireTarget) {
+                years = 0;
+            } else {
+                while (portfolio < fireTarget && years < maxYears) {
+                    portfolio = (portfolio + annualSavings) * (1 + returnRate);
+                    years++;
+                }
             }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'bottom' }
-          },
-          scales: {
-            y: { beginAtZero: true, ticks: { callback: (val) => '$' + val.toLocaleString() } }
-          }
-        }
-      });
-    }
 
-    window.onload = function() {
-      updateFireRate();
-      calculateFire();
-    };
-  </script>
+            if (years >= maxYears) {
+                document.getElementById('yearsToFire').innerText = '99+ Years';
+            } else {
+                document.getElementById('yearsToFire').innerText = years.toFixed(1) + ' Years';
+            }
+        }
+
+        // Run on load
+        window.onload = calculateFIRE;
+    </script>
 </body>
 </html>
