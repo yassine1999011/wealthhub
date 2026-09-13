@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coast FIRE Calculator: Find Your Milestone | WealthHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- HEADER -->
+    <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent brand-font">WealthHub</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="index.html" class="hover:text-emerald-600 transition">Home</a>
+                <a href="blog.html" class="hover:text-emerald-600 transition">Blog</a>
+                <a href="compound-calculator.html" class="text-emerald-600 font-semibold">Calculators</a>
+            </nav>
+            <a href="blog.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
+                Explore Guides
+            </a>
+        </div>
+    </header>
+
+    <!-- CALCULATOR CONTAINER -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow">
+        
+        <div class="mb-10 text-center">
+            <span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Interactive Tool</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-4 mb-3">
+                Coast FIRE Milestone Calculator
+            </h1>
+            <p class="text-base text-slate-600 max-w-2xl mx-auto">
+                Calculate the exact lump sum needed today so your investments grow completely on their own to fund your traditional retirement.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-sm">
+            
+            <!-- INPUTS FORM (7 Cols) -->
+            <div class="md:col-span-6 space-y-6">
+                <h2 class="text-xl font-bold text-slate-900 border-b border-slate-100 pb-3">Parameters</h2>
+                
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Current Age</label>
+                    <input type="number" id="currentAge" value="30" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Target Retirement Age</label>
+                    <input type="number" id="retirementAge" value="65" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Target Retirement Nest Egg ($)</label>
+                    <input type="number" id="targetNestEgg" value="1500000" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Current Invested Portfolio ($)</label>
+                    <input type="number" id="currentPortfolio" value="120000" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Expected Inflation-Adjusted Return (%)</label>
+                    <input type="number" id="returnRate" value="7" step="0.1" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-none transition">
+                </div>
+
+                <button onclick="calculateCoastFIRE()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-sm transition">
+                    Calculate Coast Number
+                </button>
+            </div>
+
+            <!-- RESULTS PANEL (5 Cols) -->
+            <div class="md:col-span-6 bg-slate-900 text-white rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-inner">
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Coast Status</span>
+                    <h3 class="text-xl font-bold text-white mt-1 mb-6">Milestone Dashboard</h3>
+
+                    <div class="space-y-6">
+                        <div class="border-b border-slate-800 pb-4">
+                            <span class="block text-xs text-slate-400 uppercase">Your Required Coast Number Today</span>
+                            <span id="coastTarget" class="text-3xl font-extrabold text-emerald-400">$146,014</span>
+                        </div>
+
+                        <div class="border-b border-slate-800 pb-4">
+                            <span class="block text-xs text-slate-400 uppercase">Status Assessment</span>
+                            <span id="coastStatus" class="text-xl font-bold text-cyan-400">Approaching Milestone</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-slate-800 text-xs text-slate-400">
+                    Calculated using standard present value discounting formulas for index fund compounding.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ADVERT SLOT -->
+        <div class="my-10 p-4 bg-white border border-dashed border-slate-300 rounded-2xl text-center shadow-sm">
+            <span class="block text-[10px] tracking-widest text-slate-400 uppercase mb-2">Advertisement</span>
+            <div class="h-20 flex items-center justify-center bg-slate-50 rounded-xl text-xs text-slate-400 font-mono">
+                [ Google AdSense Banner Slot ]
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 WealthHub. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
+                <a href="disclaimer.html" class="hover:underline">Financial Disclaimer</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT LOGIC -->
+    <script>
+        function calculateCoastFIRE() {
+            let currentAge = parseFloat(document.getElementById('currentAge').value) || 0;
+            let retirementAge = parseFloat(document.getElementById('retirementAge').value) || 65;
+            let targetNestEgg = parseFloat(document.getElementById('targetNestEgg').value) || 0;
+            let currentPortfolio = parseFloat(document.getElementById('currentPortfolio').value) || 0;
+            let returnRate = (parseFloat(document.getElementById('returnRate').value) || 7) / 100;
+
+            let yearsToGrow = Math.max(0, retirementAge - currentAge);
+
+            // Coast Formula: Target / (1 + r)^years
+            let coastNumber = targetNestEgg / Math.pow(1 + returnRate, yearsToGrow);
+
+            document.getElementById('coastTarget').innerText = '$' + coastNumber.toLocaleString('en-US', {maximumFractionDigits: 0});
+
+            let statusEl = document.getElementById('coastStatus');
+            if (currentPortfolio >= coastNumber) {
+                statusEl.innerText = "🎉 You have achieved Coast FIRE!";
+                statusEl.className = "text-xl font-bold text-emerald-400";
+            } else {
+                let diff = coastNumber - currentPortfolio;
+                statusEl.innerText = "Need $" + diff.toLocaleString('en-US', {maximumFractionDigits: 0}) + " more to Coast";
+                statusEl.className = "text-xl font-bold text-cyan-400";
+            }
+        }
+
+        window.onload = calculateCoastFIRE;
+    </script>
+</body>
+</html>
