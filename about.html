@@ -1,61 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full bg-slate-50">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | WealthHub</title>
-  <meta name="description" content="Learn more about WealthHub's mission to provide accessible, powerful, and privacy-first financial tools.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | WealthHub US</title>
+    <meta name="description" content="Learn about WealthHub, our mission to democratize financial independence (FIRE), and the data-driven calculators we build for US investors.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YR1G9RELM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4YR1G9RELM');
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-  <!-- HEADER -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
-      <a href="index.html" class="flex items-center text-2xl brand-font text-slate-900">
-        WealthHub<span class="text-indigo-500">.</span>
-      </a>
-      <nav class="hidden md:flex space-x-6 text-sm font-semibold">
-        <a href="debt-calculator.html" class="text-slate-600 hover:text-indigo-500">Debt Payoff</a>
-        <a href="compound-calculator.html" class="text-slate-600 hover:text-indigo-500">Compound Interest</a>
-        <a href="about.html" class="text-indigo-600">About</a>
-        <a href="legal.html" class="text-slate-600 hover:text-indigo-500">Legal</a>
-        <a href="index.html" class="text-slate-600 hover:text-indigo-500">Home</a>
-      </nav>
-    </div>
-  </header>
+    <!-- HEADER -->
+    <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent brand-font">WealthHub</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="index.html" class="hover:text-emerald-600 transition">Home</a>
+                <a href="blog.html" class="hover:text-emerald-600 transition">Blog & Guides</a>
+                <a href="compound-calculator.html" class="hover:text-emerald-600 transition">Calculators</a>
+                <a href="about.html" class="text-emerald-600 font-semibold">About</a>
+            </nav>
+            <a href="compound-calculator.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
+                Try Calculators
+            </a>
+        </div>
+    </header>
 
-  <main class="flex-grow max-w-4xl mx-auto px-4 py-12 lg:py-16 w-full">
-    <div class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-200 space-y-6">
-      <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Our Story</span>
-      <h1 class="text-3xl md:text-4xl brand-font text-slate-900">About WealthHub</h1>
-      
-      <p class="text-lg text-slate-600 leading-relaxed">
-        WealthHub was built with a simple core philosophy: financial clarity should be accessible to everyone, without friction, complex software, or privacy compromises.
-      </p>
+    <!-- ABOUT SECTION -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+                About WealthHub
+            </h1>
+            <p class="text-lg text-slate-600">Data-driven tools for the modern US investor.</p>
+        </div>
 
-      <h2 class="text-2xl brand-font text-slate-900 pt-4">Our Mission</h2>
-      <p class="text-slate-600 leading-relaxed">
-        We empower individuals to take control of their financial future through fast, interactive, and transparent tools. Whether you are climbing out of debt using the Snowball or Avalanche method, or projecting long-term investment growth, WealthHub puts data directly into your hands.
-      </p>
+        <div class="bg-white border border-slate-200 rounded-3xl p-8 sm:p-12 shadow-sm mb-12">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6">The Story Behind the Data</h2>
+            <div class="prose prose-slate max-w-none text-slate-600 space-y-6 leading-relaxed">
+                <p>
+                    Hi, I'm <strong>Yassine Idrissi</strong>, the creator behind WealthHub. 
+                    <!-- ICI TU PEUX AJOUTER TES 2 OU 3 MOTS PERSONNELS -->
+                    With a background rooted in data analytics and a deep, personal passion for financial markets, crypto, and trading platforms, I've spent years analyzing how numbers shape our financial reality.
+                </p>
+                <p>
+                    I realized that most people don't need more complex financial jargon or expensive advisors to reach financial independence. They need clear, actionable data. Whether you are aiming for early retirement (FIRE), building a robust S&P 500 portfolio, or optimizing your tax strategies through an HSA, the math remains the same.
+                </p>
+                <p>
+                    That is exactly why I built WealthHub: to translate complex financial concepts into simple, interactive calculators. By bridging the gap between raw data analytics and everyday personal finance, my goal is to give you the clarity needed to make the best financial decisions for your future in the United States.
+                </p>
+            </div>
+        </div>
 
-      <h2 class="text-2xl brand-font text-slate-900 pt-4">Privacy First</h2>
-      <p class="text-slate-600 leading-relaxed">
-        Your financial data belongs to you. All calculations on WealthHub happen directly inside your web browser. We do not store, track, or sell your personal financial information.
-      </p>
-    </div>
-  </main>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-8">
+                <div class="w-12 h-12 bg-emerald-200/50 rounded-xl flex items-center justify-center text-2xl mb-4">🎯</div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Our Mission</h3>
+                <p class="text-sm text-slate-600">To provide 100% free, high-quality financial calculators and guides that empower US residents to accelerate their journey toward financial independence.</p>
+            </div>
+            <div class="bg-cyan-50 border border-cyan-100 rounded-2xl p-8">
+                <div class="w-12 h-12 bg-cyan-200/50 rounded-xl flex items-center justify-center text-2xl mb-4">🔒</div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3">Our Commitment</h3>
+                <p class="text-sm text-slate-600">Transparency first. We believe in data accuracy and clear methodologies. While our tools are for educational purposes, they are built with rigorous mathematical logic.</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-slate-900 text-slate-400 py-10 mt-auto text-center text-sm">
-    <div class="max-w-7xl mx-auto px-4">
-      <p>&copy; 2026 WealthHub. <a href="legal.html" class="underline hover:text-white">Legal & Disclaimers</a></p>
-    </div>
-  </footer>
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 py-12 mt-auto text-xs text-slate-500">
+        <!-- (Même footer que sur index.html pour garder la cohérence) -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="text-lg font-extrabold tracking-tight text-slate-900 brand-font">WealthHub</span>
+                <p class="mt-1">Empowering financial independence and smart investing across the United States.</p>
+            </div>
+            <div class="flex flex-wrap gap-6 font-medium text-slate-600">
+                <a href="index.html" class="hover:text-emerald-600">Home</a>
+                <a href="blog.html" class="hover:text-emerald-600">Blog</a>
+                <a href="compound-calculator.html" class="hover:text-emerald-600">Calculators</a>
+                <a href="privacy-policy.html" class="hover:text-emerald-600">Privacy Policy</a>
+                <a href="disclaimer.html" class="hover:text-emerald-600">Financial Disclaimer</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-slate-100 text-center">
+            <p>&copy; 2026 WealthHub. All rights reserved. Educational content for informational purposes only.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
