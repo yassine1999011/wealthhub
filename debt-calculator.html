@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Advanced Multi-Debt Payoff Calculator | WealthHub</title>
   <meta name="description" content="Manage multiple debts with Snowball and Avalanche strategies, calculate your exact debt-free date, and export your roadmap.">
+  
+  <!-- Google AdSense Verification Tag -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4532166589218979" crossorigin="anonymous"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YR1G9RELM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-4YR1G9RELM');
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -242,7 +256,7 @@
     function calculate() {
       const strategy = document.getElementById('strategy').value;
       const extraBudget = parseFloat(document.getElementById('extra-payment').value) || 0;
-      const errorMsg =- document.getElementById('error-msg');
+      const errorMsg = document.getElementById('error-msg');
 
       // Deep copy debts for simulation
       let simDebts = JSON.parse(JSON.stringify(debts));
