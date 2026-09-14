@@ -1,206 +1,188 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full bg-slate-50">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compound Interest Calculator | WealthHub</title>
-  <meta name="description" content="Calculate the growth of your investments over time with compound interest, regular contributions, and dynamic charts.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calculators Hub | WealthHub US</title>
+    <meta name="description" content="Access our complete suite of free, interactive financial calculators for US investors. Plan your FIRE journey, track S&P 500 returns, and optimize your budget.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YR1G9RELM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4YR1G9RELM');
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-  <!-- HEADER -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
-      <a href="index.html" class="flex items-center text-2xl brand-font text-slate-900">
-        WealthHub<span class="text-indigo-500">.</span>
-      </a>
-      <nav class="hidden md:flex space-x-6 text-sm font-semibold">
-        <a href="debt-calculator.html" class="text-slate-600 hover:text-indigo-500">Debt Payoff</a>
-        <a href="compound-calculator.html" class="text-indigo-600 font-bold">Compound Interest</a>
-        <a href="about.html" class="text-slate-600 hover:text-indigo-500">About</a>
-        <a href="legal.html" class="text-slate-600 hover:text-indigo-500">Legal</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="flex-grow max-w-7xl mx-auto px-4 py-8 lg:py-12 w-full">
-    
-    <div class="text-center max-w-3xl mx-auto mb-10">
-      <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Investment Growth Engine</span>
-      <h1 class="text-3xl md:text-5xl brand-font text-slate-900 mt-4 mb-4 tracking-tight">Compound Interest Calculator</h1>
-      <p class="text-slate-600 text-lg">See how your investments can grow exponentially over time with the power of compounding.</p>
-    </div>
-
-    <!-- DASHBOARD GRID -->
-    <div class="grid lg:grid-cols-12 gap-8 mb-12">
-      
-      <!-- CONTROLS PANEL -->
-      <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 lg:col-span-5 space-y-6">
-        <h3 class="text-xl brand-font text-slate-900 mb-4">Parameters</h3>
-
-        <div>
-          <label class="block text-sm font-bold text-slate-700 mb-2">Initial Principal ($)</label>
-          <input type="number" id="principal" value="5000" step="500" class="w-full p-3 bg-slate-50 border border-slate-300 rounded-xl font-semibold focus:ring-2 focus:ring-indigo-500" oninput="calculate()">
+    <!-- HEADER -->
+    <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent brand-font">WealthHub</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="index.html" class="hover:text-emerald-600 transition">Home</a>
+                <a href="blog.html" class="hover:text-emerald-600 transition">Blog & Guides</a>
+                <a href="compound-calculator.html" class="text-emerald-600 font-semibold">Calculators</a>
+                <a href="about.html" class="hover:text-emerald-600 transition">About</a>
+            </nav>
+            <a href="compound-calculator.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
+                Try Calculators
+            </a>
         </div>
+    </header>
 
-        <div>
-          <label class="block text-sm font-bold text-slate-700 mb-2">Monthly Contribution ($)</label>
-          <input type="number" id="monthly" value="300" step="50" class="w-full p-3 bg-slate-50 border border-slate-300 rounded-xl font-semibold focus:ring-2 focus:ring-indigo-500" oninput="calculate()">
+    <!-- HUB HEADER -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+        <div class="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-semibold px-4 py-1.5 rounded-full mb-6">
+            <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span> 10 Free Tools
         </div>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+            The Ultimate Wealth Calculators
+        </h1>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+            Interactive, data-driven tools designed to help you project your net worth, optimize your US taxes, and map out your path to financial independence.
+        </p>
+    </section>
 
-        <div>
-          <label class="block text-sm font-bold text-slate-700 mb-2 flex justify-between">
-            <span>Time Horizon</span>
-            <span id="years-display" class="text-indigo-600 font-bold">10 Years</span>
-          </label>
-          <input type="range" id="years" min="1" max="40" step="1" value="10" class="w-full accent-indigo-600" oninput="updateYearsDisplay(); calculate()">
-        </div>
-
-        <div>
-          <label class="block text-sm font-bold text-slate-700 mb-2 flex justify-between">
-            <span>Estimated Annual Rate of Return</span>
-            <span id="rate-display" class="text-indigo-600 font-bold">8.0%</span>
-          </label>
-          <input type="range" id="rate" min="1" max="20" step="0.5" value="8" class="w-full accent-indigo-600" oninput="updateRateDisplay(); calculate()">
-        </div>
-      </div>
-
-      <!-- RESULTS & CHART PANEL -->
-      <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 lg:col-span-7 flex flex-col justify-between">
-        <div>
-          <h3 class="text-xl brand-font text-slate-900 mb-6">Projection Results</h3>
-          
-          <div class="grid grid-cols-2 gap-4 mb-6">
-            <div class="bg-slate-900 p-5 rounded-2xl text-white">
-              <p class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Future Value</p>
-              <p id="future-value" class="text-2xl md:text-3xl brand-font text-emerald-400">--</p>
+    <!-- CALCULATORS GRID -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- 1. FIRE Calculator -->
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-emerald-500 hover:shadow-md transition">
+                <div>
+                    <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-3xl mb-6">🔥</div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">FIRE Calculator</h2>
+                    <p class="text-sm text-slate-600 mb-6">Calculate your FIRE number and see exactly when you can retire early based on your savings rate.</p>
+                </div>
+                <a href="fire-calculator.html" class="w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition">Launch Tool &rarr;</a>
             </div>
-            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-              <p class="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Total Interest Earned</p>
-              <p id="total-interest" class="text-2xl brand-font text-indigo-600">--</p>
+
+            <!-- 2. Coast FIRE Calculator -->
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-emerald-500 hover:shadow-md transition">
+                <div>
+                    <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-3xl mb-6">🏖️</div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">Coast FIRE Calculator</h2>
+                    <p class="text-sm text-slate-600 mb-6">Find out at what age you can stop investing and let compound interest do the heavy lifting until retirement.</p>
+                </div>
+                <a href="coast-fire-calculator.html" class="w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition">Launch Tool &rarr;</a>
             </div>
-          </div>
+
+            <!-- 3. S&P 500 Calculator -->
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-cyan-500 hover:shadow-md transition">
+                <div>
+                    <div class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center text-3xl mb-6">📈</div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">S&P 500 Projector</h2>
+                    <p class="text-sm text-slate-600 mb-6">Model your wealth growth using historical S&P 500 index returns and monthly contributions.</p>
+                </div>
+                <a href="sp500-compound-calculator.html" class="w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition">Launch Tool &rarr;</a>
+            </div>
+
+            <!-- 4. Dividend Calculator -->
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-cyan-500 hover:shadow-md transition">
+                <div>
+                    <div class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center text-3xl mb-6">💸</div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">Dividend Calculator</h2>
+                    <p class="text-sm text-slate-600 mb-6">Project your passive income over time by reinvesting dividends (DRIP) from your stock portfolio.</p>
+                </div>
+                <a href="dividend-calculator.html" class="w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition">Launch Tool &rarr;</a>
+            </div>
+
+            <!-- 5. Wealth Strategy Simulator -->
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-purple-500 hover:shadow-md transition">
+                <div>
+                    <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center text-3xl mb-6">♟️</div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">Wealth Simulator</h2>
+                    <p class="text-sm text-slate-600 mb-6">Test different wealth-building strategies to see which path grows your net worth the fastest.</p>
+                </div>
+                <a href="wealth-strategy-simulator.html" class="w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition">Launch Tool &rarr;</a>
+            </div>
+
+            <!-- 6. HSA Tax Estimator -->
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-indigo-500 hover:shadow-md transition">
+                <div>
+                    <div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-3xl mb-6">🏥</div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">HSA Tax Estimator</h2>
+                    <p class="text-sm text-slate-600 mb-6">Discover the triple-tax advantage. Calculate how much you save on US taxes with a Health Savings Account.</p>
+                </div>
+                <a href="hsa-tax-estimator.html" class="w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition">Launch Tool &rarr;</a>
+            </div>
+
+            <!-- 7. HYSA Earnings Calculator -->
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-indigo-500 hover:shadow-md transition">
+                <div>
+                    <div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-3xl mb-6">🏦</div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">HYSA Calculator</h2>
+                    <p class="text-sm text-slate-600 mb-6">See how much interest your emergency fund can generate in a High-Yield Savings Account.</p>
+                </div>
+                <a href="hysa-earnings-calculator.html" class="w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition">Launch Tool &rarr;</a>
+            </div>
+
+            <!-- 8. Budget Calculator -->
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-yellow-500 hover:shadow-md transition">
+                <div>
+                    <div class="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center text-3xl mb-6">📊</div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">Budget Calculator</h2>
+                    <p class="text-sm text-slate-600 mb-6">Organize your monthly cash flow, track expenses, and optimize your 50/30/20 budgeting rule.</p>
+                </div>
+                <a href="budget-calculator.html" class="w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition">Launch Tool &rarr;</a>
+            </div>
+
+            <!-- 9. Debt Calculator -->
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-red-500 hover:shadow-md transition">
+                <div>
+                    <div class="w-14 h-14 bg-red-100 rounded-2xl flex items-center justify-center text-3xl mb-6">✂️</div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">Debt Payoff</h2>
+                    <p class="text-sm text-slate-600 mb-6">Plan your debt elimination strategy. Compare the Snowball vs. Avalanche methods to save on interest.</p>
+                </div>
+                <a href="debt-calculator.html" class="w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition">Launch Tool &rarr;</a>
+            </div>
+
+            <!-- 10. Rent vs Buy -->
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:border-orange-500 hover:shadow-md transition">
+                <div>
+                    <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center text-3xl mb-6">🏠</div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">Rent vs. Buy</h2>
+                    <p class="text-sm text-slate-600 mb-6">Compare the true long-term costs of renting versus taking out a mortgage in the current market.</p>
+                </div>
+                <a href="rent-vs-buy-calculator.html" class="w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3 rounded-xl transition">Launch Tool &rarr;</a>
+            </div>
+
         </div>
+    </section>
 
-        <!-- Chart Area -->
-        <div class="relative h-72 w-full mt-6">
-          <canvas id="compoundChart"></canvas>
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 py-12 mt-auto text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="text-lg font-extrabold tracking-tight text-slate-900 brand-font">WealthHub</span>
+                <p class="mt-1">Empowering financial independence and smart investing across the United States.</p>
+            </div>
+            <div class="flex flex-wrap gap-6 font-medium text-slate-600">
+                <a href="index.html" class="hover:text-emerald-600">Home</a>
+                <a href="blog.html" class="hover:text-emerald-600">Blog</a>
+                <a href="compound-calculator.html" class="hover:text-emerald-600">Calculators</a>
+                <a href="privacy-policy.html" class="hover:text-emerald-600">Privacy Policy</a>
+                <a href="disclaimer.html" class="hover:text-emerald-600">Financial Disclaimer</a>
+            </div>
         </div>
-      </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-slate-100 text-center">
+            <p>&copy; 2026 WealthHub. All rights reserved. Educational content for informational purposes only.</p>
+        </div>
+    </footer>
 
-    </div>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="bg-slate-900 text-slate-400 py-10 mt-auto text-center text-sm">
-    <div class="max-w-7xl mx-auto px-4">
-      <p>&copy; 2026 WealthHub. Tools for illustrative purposes. Not financial advice.</p>
-    </div>
-  </footer>
-
-  <!-- SCRIPT -->
-  <script>
-    let compoundChart = null;
-
-    function updateYearsDisplay() {
-      const yrs = document.getElementById('years').value;
-      document.getElementById('years-display').innerText = yrs + (yrs == 1 ? " Year" : " Years");
-    }
-
-    function updateRateDisplay() {
-      const rate = document.getElementById('rate').value;
-      document.getElementById('rate-display').innerText = rate + "%";
-    }
-
-    function calculate() {
-      const principal = parseFloat(document.getElementById('principal').value) || 0;
-      const monthly = parseFloat(document.getElementById('monthly').value) || 0;
-      const years = parseInt(document.getElementById('years').value) || 1;
-      const annualRate = parseFloat(document.getElementById('rate').value) / 100 || 0;
-      const monthlyRate = annualRate / 12;
-
-      let labels = [];
-      let balanceData = [];
-      let depositedData = [];
-
-      let currentBalance = principal;
-      let totalDeposited = principal;
-
-      labels.push("Start");
-      balanceData.push(principal);
-      depositedData.push(principal);
-
-      for (let y = 1; y <= years; y++) {
-        for (let m = 1; m <= 12; m++) {
-          currentBalance = (currentBalance + monthly) * (1 + monthlyRate);
-          totalDeposited += monthly;
-        }
-        labels.push("Year " + y);
-        balanceData.push(Math.round(currentBalance));
-        depositedData.push(Math.round(totalDeposited));
-      }
-
-      let interestEarned = currentBalance - totalDeposited;
-
-      document.getElementById('future-value').innerText = "$" + Math.round(currentBalance).toLocaleString('en-US');
-      document.getElementById('total-interest').innerText = "$" + Math.round(interestEarned).toLocaleString('en-US');
-
-      // Update Chart
-      const ctx = document.getElementById('compoundChart').getContext('2d');
-      if (compoundChart) compoundChart.destroy();
-
-      compoundChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: labels,
-          datasets: [
-            {
-              label: 'Total Balance ($)',
-              data: balanceData,
-              borderColor: '#6366f1',
-              backgroundColor: 'rgba(99, 102, 241, 0.1)',
-              borderWidth: 3,
-              fill: true,
-              tension: 0.3
-            },
-            {
-              label: 'Principal Deposited ($)',
-              data: depositedData,
-              borderColor: '#cbd5e1',
-              borderWidth: 2,
-              borderDash: [5, 5],
-              fill: false,
-              tension: 0.3
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { position: 'bottom' }
-          },
-          scales: {
-            y: { beginAtZero: true, ticks: { callback: (val) => '$' + val.toLocaleString() } }
-          }
-        }
-      });
-    }
-
-    window.onload = function() {
-      updateYearsDisplay();
-      updateRateDisplay();
-      calculate();
-    };
-  </script>
 </body>
 </html>
