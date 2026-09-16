@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Cash & Wealth Diagnostic Tool | WealthHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <div class="max-w-3xl mx-auto px-4 py-12">
+        <h1 class="text-3xl font-bold text-center mb-2">Smart Cash & Wealth Audit</h1>
+        <p class="text-center text-slate-600 mb-8">Discover how much idle cash is costing you and get an instant AI-powered optimization breakdown.</p>
+
+        <div class="bg-white shadow-lg rounded-2xl p-6 md:p-8 mb-8">
+            <div class="space-y-4">
+                <div>
+                    <label class="block font-medium mb-1">Total Emergency & Idle Cash ($)</label>
+                    <input type="number" id="idleCash" value="15000" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <div>
+                    <label class="block font-medium mb-1">Current Bank Interest Rate (%)</label>
+                    <input type="number" id="currentRate" value="0.05" step="0.01" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <button onclick="runAudit()" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition">Run Wealth Audit</button>
+            </div>
+        </div>
+
+        <!-- Result Box -->
+        <div id="resultBox" class="hidden bg-white shadow-lg rounded-2xl p-6 md:p-8 border-l-4 border-blue-600">
+            <h2 class="text-xl font-bold mb-4">Diagnostic Report</h2>
+            <p id="lossText" class="text-lg text-slate-700 mb-4"></p>
+            <div id="aiRecommendation" class="bg-blue-50 p-4 rounded-xl text-blue-900 text-sm mb-6"></div>
+            
+            <!-- Affiliate CTA Box -->
+            <div class="border border-blue-200 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-50">
+                <div>
+                    <h3 class="font-bold text-slate-900">Recommended US High-Yield Partner</h3>
+                    <p class="text-xs text-slate-600">Earn up to 5.10% APY with zero account fees.</p>
+                </div>
+                <a href="#" class="bg-emerald-600 text-white px-5 py-2 rounded-lg font-medium text-sm hover:bg-emerald-700 transition text-center">Open HYSA Account</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function runAudit() {
+            const cash = parseFloat(document.getElementById('idleCash').value) || 0;
+            const currentRate = parseFloat(document.getElementById('currentRate').value) / 100;
+            const targetRate = 0.051; // 5.10% HYSA rate
+
+            const currentEarnings = cash * currentRate;
+            const targetEarnings = cash * targetRate;
+            const yearlyLoss = targetEarnings - currentEarnings;
+
+            document.getElementById('resultBox').classList.remove('hidden');
+            document.getElementById('lossText').innerHTML = `You are losing approximately <strong class="text-red-600">$${yearlyLoss.toFixed(2)}</strong> every single year by keeping your cash in a low-yield account instead of a top-tier HYSA.`;
+            
+            document.getElementById('aiRecommendation').innerHTML = `<strong>AI Insight:</strong> With $${cash.toLocaleString()} sitting as liquid capital, shifting to a high-yield vehicle protects your purchasing power against inflation and accelerates your compounding goals.`;
+        }
+    </script>
+</body>
+</html>
