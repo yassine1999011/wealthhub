@@ -6,7 +6,7 @@
   <title>Advanced Multi-Debt Payoff Calculator | WealthHub</title>
   <meta name="description" content="Manage multiple debts with Snowball and Avalanche strategies, calculate your exact debt-free date, and export your roadmap.">
   
-  <!-- Google AdSense Verification Tag -->
+  <!-- Google AdSense Script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4532166589218979" crossorigin="anonymous"></script>
 
   <!-- Google tag (gtag.js) -->
@@ -15,12 +15,11 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-4YR1G9RELM');
   </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <style>
@@ -40,17 +39,22 @@
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-  <!-- HEADER -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 no-print">
-    <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
-      <a href="index.html" class="flex items-center text-2xl brand-font text-slate-900">
-        WealthHub<span class="text-indigo-500">.</span>
-      </a>
-      <nav class="hidden md:flex space-x-6 text-sm font-semibold">
-        <a href="debt-calculator.html" class="text-indigo-600">Payoff Tool</a>
-        <a href="index.html" class="text-slate-600 hover:text-indigo-500">Home</a>
-      </nav>
-    </div>
+  <!-- STANDARD HEADER -->
+  <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50 no-print">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+          <a href="index.html" class="flex items-center gap-2">
+              <span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent brand-font">WealthHub</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+              <a href="index.html" class="hover:text-emerald-600 transition">Home</a>
+              <a href="blog.html" class="hover:text-emerald-600 transition">Blog & Guides</a>
+              <a href="compound-calculator.html" class="text-emerald-600 font-semibold">Calculators</a>
+              <a href="about.html" class="hover:text-emerald-600 transition">About</a>
+          </nav>
+          <a href="compound-calculator.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
+              Try Calculators
+          </a>
+      </div>
   </header>
 
   <main class="flex-grow max-w-7xl mx-auto px-4 py-8 lg:py-12 w-full">
@@ -92,7 +96,7 @@
         </div>
 
         <div id="debts-container" class="space-y-4 overflow-y-auto max-h-[500px] pr-2">
-          <!-- Rempli dynamiquement par JS -->
+          <!-- Dynamically filled via JS -->
         </div>
       </div>
 
@@ -156,11 +160,25 @@
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-slate-900 text-slate-400 py-10 mt-auto text-center text-sm no-print">
-    <div class="max-w-7xl mx-auto px-4">
-      <p>&copy; 2026 WealthHub. Tools for illustrative purposes. Not financial advice.</p>
-    </div>
+  <!-- STANDARD FOOTER -->
+  <footer class="bg-white border-t border-slate-200 py-12 mt-auto text-xs text-slate-500 no-print">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div>
+              <span class="text-lg font-extrabold tracking-tight text-slate-900 brand-font">WealthHub</span>
+              <p class="mt-1">Empowering financial independence and smart investing across the United States.</p>
+          </div>
+          <div class="flex flex-wrap gap-6 font-medium text-slate-600">
+              <a href="index.html" class="hover:text-emerald-600 transition">Home</a>
+              <a href="blog.html" class="hover:text-emerald-600 transition">Blog & Guides</a>
+              <a href="compound-calculator.html" class="hover:text-emerald-600 transition">Calculators</a>
+              <a href="about.html" class="hover:text-emerald-600 transition">About</a>
+              <a href="privacy-policy.html" class="hover:text-emerald-600 transition">Privacy Policy</a>
+              <a href="disclaimer.html" class="hover:text-emerald-600 transition">Financial Disclaimer</a>
+          </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-slate-100 text-center">
+          <p>&copy; 2026 WealthHub US. All rights reserved. Educational content for informational purposes only.</p>
+      </div>
   </footer>
 
   <!-- MULTI-DEBT ENGINE SCRIPT -->
@@ -168,7 +186,6 @@
     let payoffChart = null;
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-    // Default debts array
     let debts = [
       { name: "Credit Card", balance: 4500, apr: 24.9, minPayment: 120 },
       { name: "Car Loan", balance: 12000, apr: 7.5, minPayment: 300 },
@@ -258,10 +275,8 @@
       const extraBudget = parseFloat(document.getElementById('extra-payment').value) || 0;
       const errorMsg = document.getElementById('error-msg');
 
-      // Deep copy debts for simulation
       let simDebts = JSON.parse(JSON.stringify(debts));
       
-      // Validate minimum payments cover interest
       let hasError = false;
       simDebts.forEach(d => {
         if (d.minPayment <= d.balance * (d.apr / 100 / 12)) hasError = true;
@@ -291,15 +306,13 @@
         let monthInterest = 0;
         let monthPrincipal = 0;
 
-        // Sort debts based on strategy
         simDebts.sort((a, b) => {
           if (a.balance <= 0) return 1;
           if (b.balance <= 0) return -1;
-          if (strategy === 'avalanche') return b.apr - a.apr; // Highest APR first
-          if (strategy === 'snowball') return a.balance - b.balance; // Lowest balance first
+          if (strategy === 'avalanche') return b.apr - a.apr; 
+          if (strategy === 'snowball') return a.balance - b.balance; 
         });
 
-        // Pay minimums first
         simDebts.forEach(d => {
           if (d.balance > 0) {
             let interest = d.balance * (d.apr / 100 / 12);
@@ -310,12 +323,11 @@
             monthPrincipal += principal;
 
             if (d.balance <= 0) {
-              monthlyExtra += d.minPayment; // Roll over min payment
+              monthlyExtra += d.minPayment; 
             }
           }
         });
 
-        // Apply extra budget to target debt
         for (let d of simDebts) {
           if (d.balance > 0 && monthlyExtra > 0) {
             let principal = monthlyExtra;
@@ -347,14 +359,12 @@
         if (currentTotalBalance <= 0) break;
       }
 
-      // Display results
       const freeDate = new Date(today.getFullYear(), today.getMonth() + months, 1);
       document.getElementById('debt-date').innerText = monthNames[freeDate.getMonth()] + " " + freeDate.getFullYear();
       document.getElementById('total-months').innerText = `(${Math.floor(months/12)} yrs ${months%12} mos total)`;
       document.getElementById('total-interest').innerText = "$" + totalInterestPaid.toLocaleString('en-US', {maximumFractionDigits:0});
       document.getElementById('schedule-body').innerHTML = scheduleHTML;
 
-      // Update Chart
       const ctx = document.getElementById('payoffChart').getContext('2d');
       if(payoffChart) payoffChart.destroy();
       payoffChart = new Chart(ctx, {
