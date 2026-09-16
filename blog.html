@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Financial Library & Guides | WealthHub</title>
     
-    <!-- Google AdSense Verification Tag (AJOUTÉ) -->
+    <!-- Google AdSense Verification Tag -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4532166589218979" crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YR1G9RELM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4YR1G9RELM');
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
@@ -25,9 +34,9 @@
             </a>
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
                 <a href="index.html" class="hover:text-emerald-600 transition">Home</a>
-                <a href="blog.html" class="text-emerald-600 font-semibold">Blog</a>
+                <a href="blog.html" class="text-emerald-600 font-semibold">Blog & Guides</a>
                 <a href="compound-calculator.html" class="hover:text-emerald-600 transition">Calculators</a>
-                <a href="about.html" class="hover:text-emerald-600 transition">About</a> <!-- AJOUTÉ -->
+                <a href="about.html" class="hover:text-emerald-600 transition">About</a>
             </nav>
             <a href="compound-calculator.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
                 Try Calculators
@@ -37,12 +46,8 @@
 
     <!-- HERO SECTION -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-6 text-center">
-        <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
-            US Personal Finance Knowledge Base
-        </h1>
-        <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
-            Explore expert guides, retirement strategies, and smart investing frameworks designed to build lasting wealth.
-        </p>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">US Personal Finance Knowledge Base</h1>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-8">Explore expert guides, retirement strategies, and smart investing frameworks designed to build lasting wealth.</p>
 
         <!-- ENCART DE REDIRECTION -->
         <div class="max-w-3xl mx-auto mb-10 bg-blue-50 border border-blue-200 rounded-2xl p-6 text-center shadow-sm">
@@ -55,56 +60,41 @@
             </div>
         </div>
 
-        <!-- QUICK JUMP PILLARS -->
         <div class="flex flex-wrap justify-center gap-3">
-            <a href="#pillar-fire" class="bg-white border border-slate-200 hover:border-emerald-500 text-slate-700 hover:text-emerald-600 text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
-                🔥 Retirement & FIRE
-            </a>
-            <a href="#pillar-investing" class="bg-white border border-slate-200 hover:border-emerald-500 text-slate-700 hover:text-emerald-600 text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
-                📈 Investing, ETFs & Crypto
-            </a>
-            <a href="#pillar-savings" class="bg-white border border-slate-200 hover:border-emerald-500 text-slate-700 hover:text-emerald-600 text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
-                🏦 Savings, Taxes & Real Estate
-            </a>
+            <a href="#pillar-fire" class="bg-white border border-slate-200 hover:border-emerald-500 text-slate-700 hover:text-emerald-600 text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">🔥 Retirement & FIRE</a>
+            <a href="#pillar-investing" class="bg-white border border-slate-200 hover:border-emerald-500 text-slate-700 hover:text-emerald-600 text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">📈 Investing & ETFs</a>
+            <a href="#pillar-savings" class="bg-white border border-slate-200 hover:border-emerald-500 text-slate-700 hover:text-emerald-600 text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">🏦 Savings & Taxes</a>
         </div>
     </section>
 
-    <!-- MAIN CONTENT CONTAINER -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 flex-grow space-y-20">
-
-        <!-- ================= PILLAR 1: RETIREMENT & FIRE ================= -->
+        <!-- PILLAR 1 -->
         <section id="pillar-fire" class="scroll-mt-28">
             <div class="border-b border-slate-200 pb-4 mb-8">
                 <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Pillar One</span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Retirement & The FIRE Movement</h2>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <article class="bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col overflow-hidden">
                     <div class="h-44 bg-gradient-to-br from-emerald-500 to-teal-700 p-6 flex items-end"><span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase">Core Strategy</span></div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <div class="text-xs text-slate-400 mb-2">5 min read</div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="fire-guide.html">The Ultimate FIRE Guide: Achieving Financial Independence</a></h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="fire-guide.html">The Ultimate FIRE Guide</a></h3>
                         <p class="text-sm text-slate-600 mb-6 flex-grow">Discover the core 4% rule, calculate your exact target number, and learn how to retire early.</p>
                         <a href="fire-guide.html" class="text-sm font-semibold text-emerald-600">Read Guide &rarr;</a>
                     </div>
                 </article>
-
                 <article class="bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col overflow-hidden">
                     <div class="h-44 bg-gradient-to-br from-teal-600 to-emerald-800 p-6 flex items-end"><span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase">Lifestyles</span></div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <div class="text-xs text-slate-400 mb-2">6 min read</div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="fire-faces.html">The 3 Faces of the FIRE Movement: LeanFIRE, FatFIRE & Barista FIRE</a></h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="fire-faces.html">LeanFIRE, FatFIRE & Barista FIRE</a></h3>
                         <p class="text-sm text-slate-600 mb-6 flex-grow">Compare minimalism vs luxury retirement paths and find out which strategy matches your income goals.</p>
                         <a href="fire-faces.html" class="text-sm font-semibold text-emerald-600">Read Guide &rarr;</a>
                     </div>
                 </article>
-
                 <article class="bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col overflow-hidden">
                     <div class="h-44 bg-gradient-to-br from-emerald-700 to-cyan-800 p-6 flex items-end"><span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase">Milestones</span></div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <div class="text-xs text-slate-400 mb-2">6 min read</div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="coast-fire.html">Coast FIRE Strategy: Work Less Now, Retire Fully Later</a></h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="coast-fire.html">Coast FIRE Strategy</a></h3>
                         <p class="text-sm text-slate-600 mb-6 flex-grow">Learn how letting your early investments compound allows you to downshift to low-stress work.</p>
                         <a href="coast-fire.html" class="text-sm font-semibold text-emerald-600">Read Guide &rarr;</a>
                     </div>
@@ -112,39 +102,33 @@
             </div>
         </section>
 
-        <!-- ================= PILLAR 2: INVESTING, ETFS & CRYPTO ================= -->
+        <!-- PILLAR 2 -->
         <section id="pillar-investing" class="scroll-mt-28">
             <div class="border-b border-slate-200 pb-4 mb-8">
                 <span class="text-xs font-bold text-cyan-600 uppercase tracking-wider">Pillar Two</span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Investing, ETFs & Crypto Markets</h2>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <article class="bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col overflow-hidden">
                     <div class="h-44 bg-gradient-to-br from-cyan-600 to-blue-800 p-6 flex items-end"><span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase">Equities</span></div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <div class="text-xs text-slate-400 mb-2">7 min read</div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="us-wealth-strategies.html">Top US Wealth Building Strategies for 2026</a></h3>
-                        <p class="text-sm text-slate-600 mb-6 flex-grow">Tax-advantaged accounts, index fund allocation, and wealth preservation tactics used by top earners.</p>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="us-wealth-strategies.html">Top US Wealth Strategies</a></h3>
+                        <p class="text-sm text-slate-600 mb-6 flex-grow">Tax-advantaged accounts, index fund allocation, and wealth preservation tactics.</p>
                         <a href="us-wealth-strategies.html" class="text-sm font-semibold text-emerald-600">Read Guide &rarr;</a>
                     </div>
                 </article>
-
                 <article class="bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col overflow-hidden">
                     <div class="h-44 bg-gradient-to-br from-blue-700 to-indigo-900 p-6 flex items-end"><span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase">Index Funds</span></div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <div class="text-xs text-slate-400 mb-2">7 min read</div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="sp500-guide.html">S&P 500 Index Fund Investing: The Ultimate Beginner's Guide</a></h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="sp500-guide.html">S&P 500 Beginner's Guide</a></h3>
                         <p class="text-sm text-slate-600 mb-6 flex-grow">Why legendary investors recommend low-cost index funds and how to build an autopilot portfolio.</p>
                         <a href="sp500-guide.html" class="text-sm font-semibold text-emerald-600">Read Guide &rarr;</a>
                     </div>
                 </article>
-
                 <article class="bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col overflow-hidden">
                     <div class="h-44 bg-gradient-to-br from-indigo-700 to-cyan-800 p-6 flex items-end"><span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase">Passive Income</span></div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <div class="text-xs text-slate-400 mb-2">6 min read</div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="dividends-guide.html">Dividend Growth Investing: Building Passive Income</a></h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="dividends-guide.html">Dividend Growth Investing</a></h3>
                         <p class="text-sm text-slate-600 mb-6 flex-grow">Build reliable cash flow without selling shares using established US Dividend Aristocrats.</p>
                         <a href="dividends-guide.html" class="text-sm font-semibold text-emerald-600">Read Guide &rarr;</a>
                     </div>
@@ -152,58 +136,60 @@
             </div>
         </section>
 
-        <!-- ================= PILLAR 3: SAVINGS, TAXES & REAL ESTATE ================= -->
+        <!-- PILLAR 3 -->
         <section id="pillar-savings" class="scroll-mt-28">
             <div class="border-b border-slate-200 pb-4 mb-8">
                 <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">Pillar Three</span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Savings, Taxes & Real Estate</h2>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <article class="bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col overflow-hidden">
                     <div class="h-44 bg-gradient-to-br from-indigo-600 to-purple-800 p-6 flex items-end"><span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase">Tax Strategy</span></div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <div class="text-xs text-slate-400 mb-2">5 min read</div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="hsa-guide.html">HSA: The Ultimate Triple Tax-Advantaged Vehicle</a></h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="hsa-guide.html">HSA: Triple Tax-Advantaged Vehicle</a></h3>
                         <p class="text-sm text-slate-600 mb-6 flex-grow">How Health Savings Accounts outperform traditional retirement accounts on tax savings.</p>
                         <a href="hsa-guide.html" class="text-sm font-semibold text-emerald-600">Read Guide &rarr;</a>
                     </div>
                 </article>
-
                 <article class="bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col overflow-hidden">
                     <div class="h-44 bg-gradient-to-br from-purple-700 to-pink-900 p-6 flex items-end"><span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase">Cash Returns</span></div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <div class="text-xs text-slate-400 mb-2">5 min read</div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="hysa-guide.html">High-Yield Savings Accounts (HYSA) vs. CDs in 2026</a></h3>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="hysa-guide.html">HYSA vs. CDs in 2026</a></h3>
                         <p class="text-sm text-slate-600 mb-6 flex-grow">Maximize cash returns with zero risk by parking emergency funds in top-tier accounts.</p>
                         <a href="hysa-guide.html" class="text-sm font-semibold text-emerald-600">Read Guide &rarr;</a>
                     </div>
                 </article>
-
                 <article class="bg-white rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition flex flex-col overflow-hidden">
                     <div class="h-44 bg-gradient-to-br from-pink-700 to-rose-900 p-6 flex items-end"><span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase">Real Estate</span></div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <div class="text-xs text-slate-400 mb-2">6 min read</div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="rent-vs-buy-guide.html">Rent vs. Buy Calculator Guide: Making the Right US Move</a></h3>
-                        <p class="text-sm text-slate-600 mb-6 flex-grow">Break down opportunity costs, mortgage rates, and property appreciation to make an informed decision.</p>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-emerald-600 transition"><a href="rent-vs-buy-guide.html">Rent vs. Buy Guide</a></h3>
+                        <p class="text-sm text-slate-600 mb-6 flex-grow">Break down opportunity costs, mortgage rates, and property appreciation.</p>
                         <a href="rent-vs-buy-guide.html" class="text-sm font-semibold text-emerald-600">Read Guide &rarr;</a>
                     </div>
                 </article>
             </div>
         </section>
-
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p>&copy; 2026 WealthHub. All rights reserved.</p>
-            <div class="flex gap-6">
-                <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
-                <a href="disclaimer.html" class="hover:underline">Financial Disclaimer</a>
+    <footer class="bg-white border-t border-slate-200 py-12 mt-auto text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="text-lg font-extrabold tracking-tight text-slate-900 brand-font">WealthHub</span>
+                <p class="mt-1">Empowering financial independence and smart investing across the United States.</p>
+            </div>
+            <div class="flex flex-wrap gap-6 font-medium text-slate-600">
+                <a href="index.html" class="hover:text-emerald-600">Home</a>
+                <a href="blog.html" class="hover:text-emerald-600">Blog</a>
+                <a href="compound-calculator.html" class="hover:text-emerald-600">Calculators</a>
+                <a href="about.html" class="hover:text-emerald-600">About</a>
+                <a href="privacy-policy.html" class="hover:text-emerald-600">Privacy Policy</a>
+                <a href="disclaimer.html" class="hover:text-emerald-600">Financial Disclaimer</a>
             </div>
         </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-slate-100 text-center">
+            <p>&copy; 2026 WealthHub US. All rights reserved.</p>
+        </div>
     </footer>
-
 </body>
 </html>
