@@ -4,23 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Cash & Wealth Diagnostic Tool | WealthHub</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4532166589218979" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YR1G9RELM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4YR1G9RELM');
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans">
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-    <!-- Header -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold text-blue-600">WealthHub</a>
-            <a href="wealth-strategy-guide.html" class="text-sm font-medium text-slate-600 hover:text-blue-600">← Back to Guide</a>
+    <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent brand-font">WealthHub</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="index.html" class="hover:text-emerald-600 transition">Home</a>
+                <a href="blog.html" class="hover:text-emerald-600 transition">Blog & Guides</a>
+                <a href="compound-calculator.html" class="text-emerald-600 font-semibold">Calculators</a>
+                <a href="about.html" class="hover:text-emerald-600 transition">About</a>
+            </nav>
+            <a href="compound-calculator.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
+                Try Calculators
+            </a>
         </div>
     </header>
 
-    <div class="max-w-3xl mx-auto px-4 py-12">
+    <div class="max-w-3xl mx-auto px-4 py-12 flex-grow">
         <h1 class="text-3xl font-bold text-center mb-2">Smart Cash & Wealth Audit Tool</h1>
         <p class="text-center text-slate-600 mb-8">Analyze your idle capital, discover your exact opportunity cost, and download your tailored AI financial roadmap.</p>
 
-        <!-- Form Card -->
         <div class="bg-white shadow-lg rounded-2xl p-6 md:p-8 mb-8">
             <div class="space-y-4">
                 <div>
@@ -39,43 +60,52 @@
             </div>
         </div>
 
-        <!-- Result Box (Hidden by default) -->
         <div id="resultBox" class="hidden bg-white shadow-xl rounded-2xl p-6 md:p-8 border-t-4 border-blue-600 space-y-6">
             <div>
                 <h2 class="text-2xl font-bold mb-2 text-slate-900">Your Personal Wealth Audit Report</h2>
                 <p id="lossText" class="text-lg text-slate-700"></p>
             </div>
 
-            <!-- AI Breakdown Box -->
             <div class="bg-blue-50 border border-blue-100 p-5 rounded-xl space-y-3">
-                <h3 class="font-bold text-blue-900 flex items-center gap-2">
-                    <span>🤖</span> AI Diagnostic & Recommendations
-                </h3>
+                <h3 class="font-bold text-blue-900 flex items-center gap-2"><span>🤖</span> AI Diagnostic & Recommendations</h3>
                 <p id="aiInsight" class="text-sm text-blue-800 leading-relaxed"></p>
             </div>
 
-            <!-- Download & Export Buttons -->
             <div class="flex flex-col sm:flex-row gap-3 pt-2">
-                <button onclick="downloadReportTXT()" class="flex-1 bg-slate-800 text-white font-medium py-2.5 px-4 rounded-lg hover:bg-slate-900 transition text-sm text-center">
-                    📥 Download Report (TXT)
-                </button>
-                <button onclick="exportToCSV()" class="flex-1 bg-emerald-600 text-white font-medium py-2.5 px-4 rounded-lg hover:bg-emerald-700 transition text-sm text-center">
-                    📊 Export Data (Excel / CSV)
-                </button>
+                <button onclick="downloadReportTXT()" class="flex-1 bg-slate-800 text-white font-medium py-2.5 px-4 rounded-lg hover:bg-slate-900 transition text-sm text-center">📥 Download Report (TXT)</button>
+                <button onclick="exportToCSV()" class="flex-1 bg-emerald-600 text-white font-medium py-2.5 px-4 rounded-lg hover:bg-emerald-700 transition text-sm text-center">📊 Export Data (Excel / CSV)</button>
             </div>
             
-            <!-- Affiliate CTA Box -->
             <div class="border border-slate-200 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-50 mt-4">
                 <div>
-                    <h4 class="font-bold text-slate-900 text-sm">Recommended US High-Yield Partner</h4>
-                    <p class="text-xs text-slate-600">Stop losing money. Earn up to 5.10% APY instantly.</p>
+                    <h4 class="font-bold text-slate-900 text-sm">Calculate High-Yield Savings Returns</h4>
+                    <p class="text-xs text-slate-600">See exactly how much you can earn with a 5.10% APY account.</p>
                 </div>
-                <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium text-xs hover:bg-blue-700 transition text-center whitespace-nowrap">Open Partner HYSA</a>
+                <a href="hysa-earnings-calculator.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium text-xs hover:bg-blue-700 transition text-center whitespace-nowrap">Calculate Yield</a>
             </div>
         </div>
     </div>
 
-    <!-- Script Logic -->
+    <footer class="bg-white border-t border-slate-200 py-12 mt-auto text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="text-lg font-extrabold tracking-tight text-slate-900 brand-font">WealthHub</span>
+                <p class="mt-1">Empowering financial independence and smart investing across the United States.</p>
+            </div>
+            <div class="flex flex-wrap gap-6 font-medium text-slate-600">
+                <a href="index.html" class="hover:text-emerald-600 transition">Home</a>
+                <a href="blog.html" class="hover:text-emerald-600 transition">Blog</a>
+                <a href="compound-calculator.html" class="hover:text-emerald-600 transition">Calculators</a>
+                <a href="about.html" class="hover:text-emerald-600 transition">About</a>
+                <a href="privacy-policy.html" class="hover:text-emerald-600 transition">Privacy Policy</a>
+                <a href="disclaimer.html" class="hover:text-emerald-600 transition">Financial Disclaimer</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-slate-100 text-center">
+            <p>&copy; 2026 WealthHub US. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script>
         let lastAuditData = {};
 
@@ -83,22 +113,20 @@
             const cash = parseFloat(document.getElementById('idleCash').value) || 0;
             const currentRate = parseFloat(document.getElementById('currentRate').value) / 100;
             const monthly = parseFloat(document.getElementById('monthlySavings').value) || 0;
-            const targetRate = 0.051; // 5.10%
+            const targetRate = 0.051; 
 
             const currentEarnings = cash * currentRate;
             const targetEarnings = cash * targetRate;
             const yearlyLoss = targetEarnings - currentEarnings;
             const fiveYearGain = (cash + (monthly * 12 * 5)) * (targetRate - currentRate) * 5;
 
-            // Store data for download
             lastAuditData = { cash, currentRate: (currentRate*100).toFixed(2), monthly, yearlyLoss: yearlyLoss.toFixed(2), fiveYearGain: fiveYearGain.toFixed(2) };
 
             document.getElementById('resultBox').classList.remove('hidden');
             
-            document.getElementById('lossTextinnerHTML', `You are leaking approximately <strong class="text-red-600">$${yearlyLoss.toFixed(2)}</strong> every year due to sub-optimal cash positioning.`);
+            // Correction du Bug JavaScript ici
             document.getElementById('lossText').innerHTML = `You are leaking approximately <strong class="text-red-600">$${yearlyLoss.toFixed(2)}</strong> every year by keeping capital in low-yield accounts. Over 5 years, this costs you roughly <strong class="text-red-600">$${fiveYearGain.toFixed(2)}</strong> in missed compounding.`;
 
-            // Dynamic AI Narrative Generation
             let riskProfile = cash > 25000 ? "Conservative/High-Cash" : "Balanced Growth";
             let aiText = `<strong>Analysis Profile:</strong> ${riskProfile}.<br>` +
                          `• <strong>Emergency Fund Status:</strong> Your $${cash.toLocaleString()} liquid reserve provides solid security, but keeping it below 4% return creates unnecessary tax-drag against inflation.<br>` +
