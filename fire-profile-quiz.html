@@ -4,20 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FIRE Profile Quiz & Simulator: Lean, Fat or Barista? | WealthHub</title>
-    
-    <!-- Google AdSense Verification Tag -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4532166589218979" crossorigin="anonymous"></script>
-
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YR1G9RELM"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-4YR1G9RELM');
     </script>
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
     <style>
@@ -27,7 +21,6 @@
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-    <!-- HEADER -->
     <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-2">
@@ -35,39 +28,30 @@
             </a>
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
                 <a href="index.html" class="hover:text-emerald-600 transition">Home</a>
-                <a href="blog.html" class="hover:text-emerald-600 transition">Blog</a>
+                <a href="blog.html" class="hover:text-emerald-600 transition">Blog & Guides</a>
                 <a href="compound-calculator.html" class="text-emerald-600 font-semibold">Calculators</a>
+                <a href="about.html" class="hover:text-emerald-600 transition">About</a>
             </nav>
-            <a href="blog.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
-                Explore Guides
+            <a href="compound-calculator.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
+                Try Calculators
             </a>
         </div>
     </header>
 
-    <!-- CALCULATOR CONTAINER -->
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow">
-        
         <div class="mb-10 text-center">
             <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Interactive Simulator</span>
-            <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-4 mb-3">
-                FIRE Archetype Matcher
-            </h1>
-            <p class="text-base text-slate-600 max-w-2xl mx-auto">
-                Discover whether LeanFIRE, Barista FIRE, or FatFIRE best aligns with your target lifestyle and income goals.
-            </p>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-4 mb-3">FIRE Archetype Matcher</h1>
+            <p class="text-base text-slate-600 max-w-2xl mx-auto">Discover whether LeanFIRE, Barista FIRE, or FatFIRE best aligns with your target lifestyle and income goals.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-sm">
-            
-            <!-- INPUTS FORM (7 Cols) -->
             <div class="md:col-span-6 space-y-6">
                 <h2 class="text-xl font-bold text-slate-900 border-b border-slate-100 pb-3">Your Lifestyle Preferences</h2>
-                
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-2">Desired Annual Living Budget ($)</label>
                     <input type="number" id="desiredBudget" value="65000" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-2 focus:ring-teal-500 focus:outline-none transition">
                 </div>
-
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-2">Willingness to Work Part-Time Later</label>
                     <select id="workPreference" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-2 focus:ring-teal-500 focus:outline-none transition">
@@ -75,63 +59,54 @@
                         <option value="no">No, complete retirement from day one</option>
                     </select>
                 </div>
-
                 <div>
                     <label class="block text-sm font-semibold text-slate-700 mb-2">Current Annual Household Income ($)</label>
                     <input type="number" id="currentIncome" value="120000" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 font-medium focus:ring-2 focus:ring-teal-500 focus:outline-none transition">
                 </div>
-
                 <button onclick="calculateProfile()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-sm transition">
                     Analyze My FIRE Archetype
                 </button>
             </div>
 
-            <!-- RESULTS PANEL (5 Cols) -->
             <div class="md:col-span-6 bg-slate-900 text-white rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-inner">
                 <div>
                     <span class="text-xs font-semibold uppercase tracking-wider text-teal-400">Recommended Path</span>
                     <h3 id="profileTitle" class="text-2xl font-extrabold text-white mt-2 mb-4">FatFIRE Strategy</h3>
-
                     <div class="space-y-4 text-sm text-slate-300">
-                        <p id="profileDescription">
-                            Your budget and income alignment suggest aiming for an uncompromised luxury retirement lifestyle with a robust investment safety buffer.
-                        </p>
+                        <p id="profileDescription">Your budget and income alignment suggest aiming for an uncompromised luxury retirement lifestyle with a robust investment safety buffer.</p>
                         <div class="pt-4 border-t border-slate-800">
                             <span class="block text-xs text-slate-400 uppercase">Required Portfolio Target</span>
                             <span id="targetNestEgg" class="text-2xl font-extrabold text-teal-400">$1,625,000</span>
                         </div>
                     </div>
                 </div>
-
                 <div class="mt-8 pt-6 border-t border-slate-800 text-xs text-slate-400">
                     WealthHub Matching Algorithm v2.6
                 </div>
             </div>
-
         </div>
-
-        <!-- ADVERT SLOT -->
-        <div class="my-10 p-4 bg-white border border-dashed border-slate-300 rounded-2xl text-center shadow-sm">
-            <span class="block text-[10px] tracking-widest text-slate-400 uppercase mb-2">Advertisement</span>
-            <div class="h-20 flex items-center justify-center bg-slate-50 rounded-xl text-xs text-slate-400 font-mono">
-                [ Google AdSense Banner Slot ]
-            </div>
-        </div>
-
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p>&copy; 2026 WealthHub. All rights reserved.</p>
-            <div class="flex gap-6">
-                <a href="privacy-policy.html" class="hover:underline">Privacy Policy</a>
-                <a href="disclaimer.html" class="hover:underline">Financial Disclaimer</a>
+    <footer class="bg-white border-t border-slate-200 py-12 mt-auto text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="text-lg font-extrabold tracking-tight text-slate-900 brand-font">WealthHub</span>
+                <p class="mt-1">Empowering financial independence and smart investing across the United States.</p>
             </div>
+            <div class="flex flex-wrap gap-6 font-medium text-slate-600">
+                <a href="index.html" class="hover:text-emerald-600 transition">Home</a>
+                <a href="blog.html" class="hover:text-emerald-600 transition">Blog</a>
+                <a href="compound-calculator.html" class="hover:text-emerald-600 transition">Calculators</a>
+                <a href="about.html" class="hover:text-emerald-600 transition">About</a>
+                <a href="privacy-policy.html" class="hover:text-emerald-600 transition">Privacy Policy</a>
+                <a href="disclaimer.html" class="hover:text-emerald-600 transition">Financial Disclaimer</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-slate-100 text-center">
+            <p>&copy; 2026 WealthHub US. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- SCRIPT LOGIC -->
     <script>
         function calculateProfile() {
             let budget = parseFloat(document.getElementById('desiredBudget').value) || 0;
@@ -147,7 +122,7 @@
             } else if (workPref === "yes" && budget >= 40000) {
                 title = "Barista FIRE Profile";
                 desc = "By combining investment returns with a flexible, low-stress part-time job or side business, you can exit the corporate rat race years earlier.";
-                multiplier = 18; // Lower required upfront capital due to part-time income buffer
+                multiplier = 18; 
             } else if (budget > 100000) {
                 title = "FatFIRE Profile";
                 desc = "You prioritize comfort, luxury, and zero lifestyle restrictions in retirement. A high-growth equity strategy is essential for your goals.";
@@ -161,7 +136,6 @@
             document.getElementById('profileDescription').innerText = desc;
             document.getElementById('targetNestEgg').innerText = '$' + target.toLocaleString('en-US', {maximumFractionDigits: 0});
         }
-
         window.onload = calculateProfile;
     </script>
 </body>
