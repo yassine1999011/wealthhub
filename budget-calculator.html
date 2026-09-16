@@ -1,28 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full bg-slate-50">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>50/30/20 Budget Calculator | WealthHub</title>
   <meta name="description" content="Master your monthly cash flow with the 50/30/20 budgeting rule. Calculate your optimal allocation for needs, wants, and savings.">
-  
-  <!-- Google AdSense Verification Tag -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4532166589218979" crossorigin="anonymous"></script>
-
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YR1G9RELM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-4YR1G9RELM');
   </script>
-
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
   <style>
     body { font-family: 'Inter', sans-serif; }
     h1, h2, h3, .brand-font { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -30,42 +23,37 @@
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-  <!-- HEADER -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
-      <a href="index.html" class="flex items-center text-2xl brand-font text-slate-900">
-        WealthHub<span class="text-indigo-500">.</span>
-      </a>
-      <nav class="hidden md:flex space-x-6 text-sm font-semibold">
-        <a href="debt-calculator.html" class="text-slate-600 hover:text-indigo-500">Debt Payoff</a>
-        <a href="compound-calculator.html" class="text-slate-600 hover:text-indigo-500">Compound Interest</a>
-        <a href="budget-calculator.html" class="text-indigo-600 font-bold">50/30/20 Budget</a>
-        <a href="about.html" class="text-slate-600 hover:text-indigo-500">About</a>
-        <a href="legal.html" class="text-slate-600 hover:text-indigo-500">Legal</a>
-      </nav>
-    </div>
+  <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+          <a href="index.html" class="flex items-center gap-2">
+              <span class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent brand-font">WealthHub</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+              <a href="index.html" class="hover:text-emerald-600 transition">Home</a>
+              <a href="blog.html" class="hover:text-emerald-600 transition">Blog & Guides</a>
+              <a href="compound-calculator.html" class="hover:text-emerald-600 transition">Calculators</a>
+              <a href="about.html" class="hover:text-emerald-600 transition">About</a>
+          </nav>
+          <a href="compound-calculator.html" class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition">
+              Try Calculators
+          </a>
+      </div>
   </header>
 
-  <main class="flex-grow max-w-7xl mx-auto px-4 py-8 lg:py-12 w-full">
-    
+  <main class="flex-grow max-w-7xl mx-auto px-4 py-16 w-full">
     <div class="text-center max-w-3xl mx-auto mb-10">
       <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Smart Cash Flow</span>
       <h1 class="text-3xl md:text-5xl brand-font text-slate-900 mt-4 mb-4 tracking-tight">50/30/20 Budget Planner</h1>
       <p class="text-slate-600 text-lg">Allocate your monthly income effortlessly into needs, wants, and financial goals.</p>
     </div>
 
-    <!-- DASHBOARD GRID -->
     <div class="grid lg:grid-cols-12 gap-8 mb-12">
-      
-      <!-- INPUT PANEL -->
       <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 lg:col-span-5 space-y-6">
         <h3 class="text-xl brand-font text-slate-900 mb-4">Your Income</h3>
-
         <div>
           <label class="block text-sm font-bold text-slate-700 mb-2">Monthly Net Income ($)</label>
           <input type="number" id="income" value="3500" step="100" class="w-full p-3 bg-slate-50 border border-slate-300 rounded-xl font-semibold focus:ring-2 focus:ring-indigo-500" oninput="calculateBudget()">
         </div>
-
         <div class="p-5 bg-indigo-50 rounded-2xl border border-indigo-100 space-y-2">
           <h4 class="font-bold text-indigo-900 text-sm">How the rule works:</h4>
           <ul class="text-xs text-indigo-800 space-y-1.5 list-disc pl-4">
@@ -76,11 +64,9 @@
         </div>
       </div>
 
-      <!-- RESULTS & CHART PANEL -->
       <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 lg:col-span-7 flex flex-col justify-between">
         <div>
           <h3 class="text-xl brand-font text-slate-900 mb-6">Recommended Allocation</h3>
-          
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             <div class="bg-slate-900 p-4 rounded-2xl text-white">
               <p class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Needs (50%)</p>
@@ -96,31 +82,37 @@
             </div>
           </div>
         </div>
-
-        <!-- Chart Area -->
         <div class="relative h-64 w-full mt-4 flex justify-center">
           <canvas id="budgetChart"></canvas>
         </div>
       </div>
-
     </div>
-
   </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-slate-900 text-slate-400 py-10 mt-auto text-center text-sm">
-    <div class="max-w-7xl mx-auto px-4">
-      <p>&copy; 2026 WealthHub. Tools for illustrative purposes. Not financial advice.</p>
-    </div>
+  <footer class="bg-white border-t border-slate-200 py-12 mt-auto text-xs text-slate-500">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div>
+              <span class="text-lg font-extrabold tracking-tight text-slate-900 brand-font">WealthHub</span>
+              <p class="mt-1">Empowering financial independence and smart investing across the United States.</p>
+          </div>
+          <div class="flex flex-wrap gap-6 font-medium text-slate-600">
+              <a href="index.html" class="hover:text-emerald-600 transition">Home</a>
+              <a href="blog.html" class="hover:text-emerald-600 transition">Blog & Guides</a>
+              <a href="compound-calculator.html" class="hover:text-emerald-600 transition">Calculators</a>
+              <a href="about.html" class="hover:text-emerald-600 transition">About</a>
+              <a href="privacy-policy.html" class="hover:text-emerald-600 transition">Privacy Policy</a>
+              <a href="disclaimer.html" class="hover:text-emerald-600 transition">Financial Disclaimer</a>
+          </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-slate-100 text-center">
+          <p>&copy; 2026 WealthHub US. All rights reserved. Educational content for informational purposes only.</p>
+      </div>
   </footer>
 
-  <!-- SCRIPT -->
   <script>
     let budgetChart = null;
-
     function calculateBudget() {
       const income = parseFloat(document.getElementById('income').value) || 0;
-      
       const needs = income * 0.50;
       const wants = income * 0.30;
       const savings = income * 0.20;
@@ -151,7 +143,6 @@
         }
       });
     }
-
     window.onload = function() {
       calculateBudget();
     };
