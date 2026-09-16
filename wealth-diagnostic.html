@@ -8,55 +8,138 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans">
 
-    <div class="max-w-3xl mx-auto px-4 py-12">
-        <h1 class="text-3xl font-bold text-center mb-2">Smart Cash & Wealth Audit</h1>
-        <p class="text-center text-slate-600 mb-8">Discover how much idle cash is costing you and get an instant AI-powered optimization breakdown.</p>
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-blue-600">WealthHub</a>
+            <a href="wealth-strategy-guide.html" class="text-sm font-medium text-slate-600 hover:text-blue-600">← Back to Guide</a>
+        </div>
+    </header>
 
+    <div class="max-w-3xl mx-auto px-4 py-12">
+        <h1 class="text-3xl font-bold text-center mb-2">Smart Cash & Wealth Audit Tool</h1>
+        <p class="text-center text-slate-600 mb-8">Analyze your idle capital, discover your exact opportunity cost, and download your tailored AI financial roadmap.</p>
+
+        <!-- Form Card -->
         <div class="bg-white shadow-lg rounded-2xl p-6 md:p-8 mb-8">
             <div class="space-y-4">
                 <div>
-                    <label class="block font-medium mb-1">Total Emergency & Idle Cash ($)</label>
-                    <input type="number" id="idleCash" value="15000" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none">
+                    <label class="block font-medium mb-1 text-sm text-slate-700">Total Emergency & Idle Cash ($)</label>
+                    <input type="number" id="idleCash" value="20000" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none">
                 </div>
                 <div>
-                    <label class="block font-medium mb-1">Current Bank Interest Rate (%)</label>
+                    <label class="block font-medium mb-1 text-sm text-slate-700">Current Bank Interest Rate (%)</label>
                     <input type="number" id="currentRate" value="0.05" step="0.01" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none">
                 </div>
-                <button onclick="runAudit()" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition">Run Wealth Audit</button>
+                <div>
+                    <label class="block font-medium mb-1 text-sm text-slate-700">Monthly Contribution / Savings ($)</label>
+                    <input type="number" id="monthlySavings" value="500" class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+                <button onclick="runAudit()" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition shadow-md">Run AI Financial Audit</button>
             </div>
         </div>
 
-        <!-- Result Box -->
-        <div id="resultBox" class="hidden bg-white shadow-lg rounded-2xl p-6 md:p-8 border-l-4 border-blue-600">
-            <h2 class="text-xl font-bold mb-4">Diagnostic Report</h2>
-            <p id="lossText" class="text-lg text-slate-700 mb-4"></p>
-            <div id="aiRecommendation" class="bg-blue-50 p-4 rounded-xl text-blue-900 text-sm mb-6"></div>
+        <!-- Result Box (Hidden by default) -->
+        <div id="resultBox" class="hidden bg-white shadow-xl rounded-2xl p-6 md:p-8 border-t-4 border-blue-600 space-y-6">
+            <div>
+                <h2 class="text-2xl font-bold mb-2 text-slate-900">Your Personal Wealth Audit Report</h2>
+                <p id="lossText" class="text-lg text-slate-700"></p>
+            </div>
+
+            <!-- AI Breakdown Box -->
+            <div class="bg-blue-50 border border-blue-100 p-5 rounded-xl space-y-3">
+                <h3 class="font-bold text-blue-900 flex items-center gap-2">
+                    <span>🤖</span> AI Diagnostic & Recommendations
+                </h3>
+                <p id="aiInsight" class="text-sm text-blue-800 leading-relaxed"></p>
+            </div>
+
+            <!-- Download & Export Buttons -->
+            <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                <button onclick="downloadReportTXT()" class="flex-1 bg-slate-800 text-white font-medium py-2.5 px-4 rounded-lg hover:bg-slate-900 transition text-sm text-center">
+                    📥 Download Report (TXT)
+                </button>
+                <button onclick="exportToCSV()" class="flex-1 bg-emerald-600 text-white font-medium py-2.5 px-4 rounded-lg hover:bg-emerald-700 transition text-sm text-center">
+                    📊 Export Data (Excel / CSV)
+                </button>
+            </div>
             
             <!-- Affiliate CTA Box -->
-            <div class="border border-blue-200 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-50">
+            <div class="border border-slate-200 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-50 mt-4">
                 <div>
-                    <h3 class="font-bold text-slate-900">Recommended US High-Yield Partner</h3>
-                    <p class="text-xs text-slate-600">Earn up to 5.10% APY with zero account fees.</p>
+                    <h4 class="font-bold text-slate-900 text-sm">Recommended US High-Yield Partner</h4>
+                    <p class="text-xs text-slate-600">Stop losing money. Earn up to 5.10% APY instantly.</p>
                 </div>
-                <a href="#" class="bg-emerald-600 text-white px-5 py-2 rounded-lg font-medium text-sm hover:bg-emerald-700 transition text-center">Open HYSA Account</a>
+                <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium text-xs hover:bg-blue-700 transition text-center whitespace-nowrap">Open Partner HYSA</a>
             </div>
         </div>
     </div>
 
+    <!-- Script Logic -->
     <script>
+        let lastAuditData = {};
+
         function runAudit() {
             const cash = parseFloat(document.getElementById('idleCash').value) || 0;
             const currentRate = parseFloat(document.getElementById('currentRate').value) / 100;
-            const targetRate = 0.051; // 5.10% HYSA rate
+            const monthly = parseFloat(document.getElementById('monthlySavings').value) || 0;
+            const targetRate = 0.051; // 5.10%
 
             const currentEarnings = cash * currentRate;
             const targetEarnings = cash * targetRate;
             const yearlyLoss = targetEarnings - currentEarnings;
+            const fiveYearGain = (cash + (monthly * 12 * 5)) * (targetRate - currentRate) * 5;
+
+            // Store data for download
+            lastAuditData = { cash, currentRate: (currentRate*100).toFixed(2), monthly, yearlyLoss: yearlyLoss.toFixed(2), fiveYearGain: fiveYearGain.toFixed(2) };
 
             document.getElementById('resultBox').classList.remove('hidden');
-            document.getElementById('lossText').innerHTML = `You are losing approximately <strong class="text-red-600">$${yearlyLoss.toFixed(2)}</strong> every single year by keeping your cash in a low-yield account instead of a top-tier HYSA.`;
             
-            document.getElementById('aiRecommendation').innerHTML = `<strong>AI Insight:</strong> With $${cash.toLocaleString()} sitting as liquid capital, shifting to a high-yield vehicle protects your purchasing power against inflation and accelerates your compounding goals.`;
+            document.getElementById('lossTextinnerHTML', `You are leaking approximately <strong class="text-red-600">$${yearlyLoss.toFixed(2)}</strong> every year due to sub-optimal cash positioning.`);
+            document.getElementById('lossText').innerHTML = `You are leaking approximately <strong class="text-red-600">$${yearlyLoss.toFixed(2)}</strong> every year by keeping capital in low-yield accounts. Over 5 years, this costs you roughly <strong class="text-red-600">$${fiveYearGain.toFixed(2)}</strong> in missed compounding.`;
+
+            // Dynamic AI Narrative Generation
+            let riskProfile = cash > 25000 ? "Conservative/High-Cash" : "Balanced Growth";
+            let aiText = `<strong>Analysis Profile:</strong> ${riskProfile}.<br>` +
+                         `• <strong>Emergency Fund Status:</strong> Your $${cash.toLocaleString()} liquid reserve provides solid security, but keeping it below 4% return creates unnecessary tax-drag against inflation.<br>` +
+                         `• <strong>Action Plan:</strong> Shift your core liquid capital into a top-tier High-Yield Savings Account (HYSA) yielding 5.10%+. Automate your $${monthly} monthly surplus directly into tax-advantaged accounts or broad S&P 500 index funds via DCA.`;
+            
+            document.getElementById('aiInsight').innerHTML = aiText;
+        }
+
+        function downloadReportTXT() {
+            const content = `WEALTHHUB - SMART CASH AUDIT REPORT\n` +
+                            `====================================\n` +
+                            `- Idle Cash Amount: $${lastAuditData.cash}\n` +
+                            `- Current Bank Rate: ${lastAuditData.currentRate}%\n` +
+                            `- Monthly Savings: $${lastAuditData.monthly}\n` +
+                            `- Estimated Yearly Loss: $${lastAuditData.yearlyLoss}\n` +
+                            `- 5-Year Compounding Gap: $${lastAuditData.fiveYearGain}\n\n` +
+                            `Generated by WealthHub US (https://wealthhubus.com)`;
+
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'WealthHub_Audit_Report.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function exportToCSV() {
+            const csvContent = "data:text/csv;charset=utf-8," +
+                "Metric,Value\n" +
+                `Idle Cash,$${lastAuditData.cash}\n` +
+                `Current Rate,${lastAuditData.currentRate}%\n` +
+                `Monthly Savings,$${lastAuditData.monthly}\n` +
+                `Yearly Loss,$${lastAuditData.yearlyLoss}\n` +
+                `5-Year Gap,$${lastAuditData.fiveYearGain}`;
+
+            const encodedUri = encodeURI(csvContent);
+            const a = document.createElement('a');
+            a.href = encodedUri;
+            a.download = 'WealthHub_Data_Export.csv';
+            a.click();
         }
     </script>
 </body>
