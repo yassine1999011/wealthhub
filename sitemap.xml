@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Pages d'Accueil et Piliers -->
     <url>
         <loc>https://wealthhubus.com/</loc>
         <changefreq>weekly</changefreq>
@@ -11,9 +12,21 @@
         <priority>0.9</priority>
     </url>
     <url>
+        <loc>https://wealthhubus.com/compound-calculator.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://wealthhubus.com/about.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Nouveaux Outils & Guides Stratégiques -->
+    <url>
         <loc>https://wealthhubus.com/wealth-strategy-guide.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
+        <priority>0.85</priority>
     </url>
     <url>
         <loc>https://wealthhubus.com/wealth-diagnostic.html</loc>
@@ -26,10 +39,12 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://wealthhubus.com/sp500-guide.html</loc>
+        <loc>https://wealthhubus.com/wealth-strategy-simulator.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+
+    <!-- Guides et Masterclasses -->
     <url>
         <loc>https://wealthhubus.com/fire-guide.html</loc>
         <changefreq>monthly</changefreq>
@@ -38,56 +53,105 @@
     <url>
         <loc>https://wealthhubus.com/fire-faces.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://wealthhubus.com/coast-fire.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://wealthhubus.com/hsa-guide.html</loc>
+        <loc>https://wealthhubus.com/sp500-guide.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://wealthhubus.com/hysa-guide.html</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://wealthhubus.com/rent-vs-buy-guide.html</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
     </url>
     <url>
         <loc>https://wealthhubus.com/dividends-guide.html</loc>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://wealthhubus.com/compound-calculator.html</loc>
+        <loc>https://wealthhubus.com/hsa-guide.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://wealthhubus.com/hysa-guide.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://wealthhubus.com/rent-vs-buy-guide.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://wealthhubus.com/inflation-budget.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <!-- Outils Interactifs & Calculateurs -->
+    <url>
+        <loc>https://wealthhubus.com/fire-calculator.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://wealthhubus.com/fire-profile-quiz.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://wealthhubus.com/coast-fire-calculator.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>https://wealthhubus.com/sp500-compound-calculator.html</loc>
         <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>https://wealthhubus.com/dividend-calculator.html</loc>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://wealthhubus.com/about.html</loc>
-        <changefreq>yearly</changefreq>
-        <priority>0.6</priority>
+        <loc>https://wealthhubus.com/hsa-tax-estimator.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://wealthhubus.com/hysa-earnings-calculator.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://wealthhubus.com/budget-calculator.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://wealthhubus.com/debt-calculator.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://wealthhubus.com/rent-vs-buy-calculator.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Pages Légales Obligatoires -->
     <url>
         <loc>https://wealthhubus.com/privacy-policy.html</loc>
         <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.4</priority>
     </url>
     <url>
         <loc>https://wealthhubus.com/disclaimer.html</loc>
         <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
+        <priority>0.4</priority>
     </url>
 </urlset>
